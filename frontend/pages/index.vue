@@ -45,58 +45,59 @@
               </p>
             </div>
 
-            <div>
-              <v-timeline side="end">
-                <v-timeline-item
-                  v-for="exp in experiences"
-                  :key="exp.duration"
-                  dot-color="green"
-                  size="small"
-                  hide-opposite
-                >
-                  <v-card class="elevation-0">
-                    <v-card-title class="text-h5">
-                      {{ exp.name }}
-                    </v-card-title>
-                    <v-card-subtitle>
-                      {{ exp.company }} . {{ exp.level }}
-                    </v-card-subtitle>
-                    <v-card-subtitle>
-                      {{ exp.duration }}
-                    </v-card-subtitle>
-                    <v-card-subtitle>
-                      {{ exp.location }}
-                    </v-card-subtitle>
+            <v-timeline side="end" class="mt-16">
+              <v-timeline-item
+                v-for="exp in experiences"
+                :key="exp.duration"
+                dot-color="green"
+                size="small"
+                hide-opposite
+              >
+                <v-card class="elevation-0">
+                  <v-card-title class="text-h5">
+                    {{ exp.name }}
+                  </v-card-title>
+                  <v-card-subtitle>
+                    {{ exp.company }} . {{ exp.level }}
+                  </v-card-subtitle>
+                  <v-card-subtitle>
+                    {{ exp.duration }}
+                  </v-card-subtitle>
+                  <v-card-subtitle>
+                    {{ exp.location }}
+                  </v-card-subtitle>
 
-                    <v-card-text>
-                      <div v-for="line, key in exp.desc" :key="key">
-                        - {{ line }}
-                      </div>
-                    </v-card-text>
-                  </v-card>
-                </v-timeline-item>
-              </v-timeline>
-            </div>
+                  <v-card-text>
+                    <div v-for="line, key in exp.desc" :key="key">
+                      - {{ line }}
+                    </div>
+                  </v-card-text>
+                </v-card>
+              </v-timeline-item>
+            </v-timeline>
           </section>
 
           <!-- Skills section -->
           <section id="skills">
-            <div>
-              Skills
-            </div>
-            <v-row justify="space-around">
-              <v-col v-for="skill, key in skills" :key="key" md="4" cols="12">
-                <v-card>
-                  <v-card-title>{{ key }}</v-card-title>
+            <v-card>
+              <v-card-title>Tech Stacks</v-card-title>
 
-                  <v-card-item class="d-flex justify-space-around bg-surface-variant">
-                    <v-avatar v-for="stack in skill" :key="stack.name">
-                      <v-img :src="stack.icon" :alt="stack.name"/>
-                    </v-avatar>
-                  </v-card-item>
-                </v-card>
-              </v-col>
-            </v-row>
+              <v-card-item>
+                <v-row justify="space-around">
+                  <v-col v-for="skill, key in skills" :key="key" md="4" cols="12">
+                    <v-card>
+                      <v-card-title>{{ key }}</v-card-title>
+
+                      <v-card-item class="d-flex justify-space-around bg-surface-variant">
+                        <v-avatar v-for="stack in skill" :key="stack.name">
+                          <v-img :src="stack.icon" :alt="stack.name"/>
+                        </v-avatar>
+                      </v-card-item>
+                    </v-card>
+                  </v-col>
+                </v-row>
+              </v-card-item>
+            </v-card>
           </section>
 
           <!-- Portfolio section -->
