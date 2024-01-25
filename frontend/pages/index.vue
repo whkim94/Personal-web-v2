@@ -4,32 +4,34 @@
       <v-row justify="center" no-gutters>
         <v-col lg="4" cols="12">
           <!-- Name section -->
-          <v-sheet class="pa-8">
+          <div style="position: sticky; top: 65px">
+            <v-sheet class="pa-8">
 
-            <div>
-              <div class="text-h3 text-green">
-                JONATHAN KIM
+              <div>
+                <div class="text-h3 text-green">
+                  JONATHAN KIM
+                </div>
+
+                <div class="text-h5">
+                  Full Stack developer
+                </div>
+
+                <div class="py-6">
+                  I build from Front to Back.
+                </div>
               </div>
 
-              <div class="text-h5">
-                Full Stack developer
+              <div class="py-4">
+                <v-btn
+                  variant="outlined"
+                  color="green"
+                  href="#portfolio"
+                >
+                  Let's Talk!
+                </v-btn>
               </div>
-
-              <div class="py-6">
-                I build from Front to Back.
-              </div>
-            </div>
-
-            <div class="py-4">
-              <v-btn
-                variant="outlined"
-                color="green"
-                href="#portfolio"
-              >
-                Let's Talk!
-              </v-btn>
-            </div>
-          </v-sheet>
+            </v-sheet>
+          </div>
         </v-col>
 
         <v-col lg="4" cols="12">
