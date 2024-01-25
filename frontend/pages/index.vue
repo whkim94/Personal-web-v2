@@ -1,24 +1,8 @@
 <template>
-  <v-main style="background: grey">
+  <v-main class="bg-grey">
     <v-container class="py-16">
-      <!-- <v-app-bar elevation="0" class="px-16">
-        <v-app-bar-title>
-          <Logo />
-        </v-app-bar-title>
-        <v-spacer/>
-        <v-toolbar-items>
-          <v-btn
-            v-for="item in menuItems"
-            :key="item.text"
-            :href="item.href"
-          >
-            {{ item.text }}
-          </v-btn>
-        </v-toolbar-items>
-      </v-app-bar> -->
-
       <v-row justify="center" no-gutters>
-        <v-col md="4">
+        <v-col lg="4" cols="12">
           <!-- Name section -->
           <v-sheet class="pa-8">
 
@@ -48,7 +32,7 @@
           </v-sheet>
         </v-col>
 
-        <v-col md="4">
+        <v-col lg="4" cols="12">
           <!-- About Me section -->
           <section id="about">
             <div class="pa-8">
@@ -84,22 +68,15 @@
                       {{ exp.location }}
                     </v-card-subtitle>
 
-                    <v-card-text style="white-space: pre;">
-                      {{ exp.desc }}
+                    <v-card-text>
+                      <div v-for="line, key in exp.desc" :key="key">
+                        - {{ line }}
+                      </div>
                     </v-card-text>
                   </v-card>
                 </v-timeline-item>
               </v-timeline>
             </div>
-
-            <v-row>
-              <v-col cols="12" md="4">
-                <h2>About Me</h2>
-              </v-col>
-              <v-col cols="12" md="8">
-                <p/>
-              </v-col>
-            </v-row>
           </section>
 
           <!-- Skills section -->
@@ -107,38 +84,16 @@
             <div>
               Skills
             </div>
-            <v-row>
-              <v-col cols="12">
+            <v-row justify="space-around">
+              <v-col v-for="skill, key in skills" :key="key" md="4" cols="12">
                 <v-card>
-                  <v-card-title>Frontend</v-card-title>
+                  <v-card-title>{{ key }}</v-card-title>
 
-                  <v-card-item>
-                    <v-avatar v-for="icon in frontends" :key="icon.name">
-                      <v-img :src="icon.icon" :alt="icon.name"/>
+                  <v-card-item class="d-flex justify-space-around bg-surface-variant">
+                    <v-avatar v-for="stack in skill" :key="stack.name">
+                      <v-img :src="stack.icon" :alt="stack.name"/>
                     </v-avatar>
                   </v-card-item>
-                </v-card>
-              </v-col>
-
-              <v-col
-                v-for="skill in skills"
-                :key="skill.name"
-                cols="6" sm="4" md="3"
-              >
-                <v-card>
-                  <v-card-title>
-                    {{ skill.name }} <v-img :src="skill.icon"/>
-                  </v-card-title>
-
-                  <v-card-subtitle>
-                    {{ skill.level }}
-                  </v-card-subtitle>
-                  <v-card-text>
-                    <v-progress-linear
-                      v-model="skill.value"
-                      color="green"
-                    />
-                  </v-card-text>
                 </v-card>
               </v-col>
             </v-row>
@@ -206,7 +161,15 @@ const experiences = ref([
     company: 'Interfit Worldwide Inc',
     level: 'Freelance',
     location: 'Irvine / CA',
-    desc: 'Oversaw development milestones from inception to final delivery.\nBoosted daily traffic by 50%.\nImplemented enhancements to both backend and frontend, improving performance and introducing new features.\nEstablished release and development environments using Docker.\nDeployed microservices using AWS Fargate.\nCreated admin page leveraging Google Analytics API for monitoring daily website status.\nConfigured GitHub Actions for automated CI/CD.'
+    desc: [
+      'Oversaw development milestones from inception to final delivery.',
+      'Boosted daily traffic by 50%.',
+      'Implemented enhancements to both backend and frontend, improving performance and introducing new features.',
+      'Established release and development environments using Docker.',
+      'Deployed microservices using AWS Fargate.',
+      'Created admin page leveraging Google Analytics API for monitoring daily website status.',
+      'Configured GitHub Actions for automated CI/CD.'
+    ]
   },
   {
     name: 'Full-Stack Developer',
@@ -214,7 +177,13 @@ const experiences = ref([
     company: 'BASF',
     level: 'Freelance',
     location: 'San Diego / CA',
-    desc: 'Oversaw full-cycle process, from designing layouts using Figma to building projects with Nuxt.js.\nEnhanced FastAPI backend and streamlined deployment using Docker and GitLab CI/CD.\nCreated sophisticated tool for migrating from legacy software.\nCollaborated with scientists to develop research tools, increasing their work efficiency.\nEnhanced user experience by providing tailored suggestions.\n'
+    desc: [
+      'Oversaw full-cycle process, from designing layouts using Figma to building projects with Nuxt.js.',
+      'Enhanced FastAPI backend and streamlined deployment using Docker and GitLab CI/CD.',
+      'Created sophisticated tool for migrating from legacy software.',
+      'Collaborated with scientists to develop research tools, increasing their work efficiency.',
+      'Enhanced user experience by providing tailored suggestions.'
+    ]
   },
   {
     name: 'Full-Stack Developer',
@@ -222,66 +191,66 @@ const experiences = ref([
     company: 'Interfit',
     level: 'Freelance',
     location: 'Irvine / CA',
-    desc: 'Developed web application from scratch as early team member at startup.\nImplemented Twilio\'s Video and Voice bi-directional conferencing features.\nDeployed Docker-based microservices, including Nginx, frontend, server, workers, and more, on AWS ECS.\nConfigured scheduled tasks using Django Celery and AWS Cluster Scheduler.\nIntroduced user chat functionality, leveraging Django with Daphne\'s ASGI and Socket.io.\nUtilized Nuxt.js for SEO optimization and Vuetify for enhanced UI/UX design.'
+    desc: [
+      'Developed web application from scratch as early team member at startup.',
+      'Implemented Twilio\'s Video and Voice bi-directional conferencing features.',
+      'Deployed Docker-based microservices, including Nginx, frontend, server, workers, and more, on AWS ECS.',
+      'Configured scheduled tasks using Django Celery and AWS Cluster Scheduler.',
+      'Introduced user chat functionality, leveraging Django with Daphne\'s ASGI and Socket.io.',
+      'Utilized Nuxt.js for SEO optimization and Vuetify for enhanced UI/UX design.'
+    ]
   },
 ]);
 
-const languages = ref([
-  {
-    name: 'Python', level: 'Expert', value: 90, icon: '/icons/python.svg'
-  },
-  {
-    name: 'Javascript', level: 'Intermediate', value: 80, icon: '/icons/javascript.svg'
-  },
-  {
-    name: 'Typescript', level: 'Intermediate', value: 80, icon: '/icons/typescript.svg'
-  },
-]);
+const skills = ref({
+  languages: [
+    {
+      name: 'Python', level: 'Expert', value: 90, icon: '/icons/python.svg'
+    },
+    {
+      name: 'Javascript', level: 'Intermediate', value: 80, icon: '/icons/javascript.svg'
+    },
+    {
+      name: 'Typescript', level: 'Intermediate', value: 80, icon: '/icons/typescript-icon.svg'
+    },
+  ],
 
-const frontends = ref([
-  {
-    name: 'Vue.js', level: 'Advanced', value: 75, icon: '/icons/vue.svg'
-  },
-  {
-    name: 'Nuxt.js', level: 'Intermediate', value: 70, icon: '/icons/nuxt-icon.svg'
-  },
-  {
-    name: 'React.js', level: 'Intermediate', value: 75, icon: '/icons/react.svg'
-  },
-]);
+  frontends: [
+    {
+      name: 'Vue.js', level: 'Advanced', value: 75, icon: '/icons/vue.svg'
+    },
+    {
+      name: 'Nuxt.js', level: 'Intermediate', value: 70, icon: '/icons/nuxt-icon.svg'
+    },
+    {
+      name: 'React.js', level: 'Intermediate', value: 75, icon: '/icons/react.svg'
+    },
+  ],
 
-const backends = ref([
-  {
-    name: 'Django', level: 'Advanced', value: 75, icon: '/icons/django.svg'
-  },
-  {
-    name: 'FastAPI', level: 'Intermediate', value: 70, icon: '/icons/fastapi-icon.svg'
-  },
-  {
-    name: 'Node.js', level: 'Intermediate', value: 75, icon: '/icons/nodejs-icon.svg'
-  },
-]);
+  backends: [
+    {
+      name: 'Django', level: 'Advanced', value: 75, icon: '/icons/django-icon.svg'
+    },
+    {
+      name: 'FastAPI', level: 'Intermediate', value: 70, icon: '/icons/fastapi-icon.svg'
+    },
+    {
+      name: 'Node.js', level: 'Intermediate', value: 75, icon: '/icons/nodejs-icon.svg'
+    },
+  ],
 
-const styles = ref([
-  {
-    name: 'Vuetify', level: 'Advanced', value: 75, icon: '/icons/vuetifyjs.svg'
-  },
-]);
+  styles: [
+    {
+      name: 'Vuetify', level: 'Advanced', value: 75, icon: '/icons/vuetifyjs.svg'
+    },
+  ],
 
-const DevOps = ref([
-  {
-    name: 'AWS', level: 'Intermediate', value: 75, icon: '/icons/aws.svg'
-  },
-]);
-
-const skills = ref([
-  {
-    name: 'HTML/CSS', level: 'Expert', value: 90, icon: '/icons/vue.svg'
-  },
-  {
-    name: 'UI/UX Design', level: 'Intermediate', value: 65, icon: '/icons/vue.svg'
-  },
-]);
+  devOps: [
+    {
+      name: 'AWS', level: 'Intermediate', value: 75, icon: '/icons/aws.svg'
+    },
+  ]
+});
 
 const projects = ref([
   {
