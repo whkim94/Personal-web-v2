@@ -62,48 +62,53 @@
                 size="small"
                 hide-opposite
               >
-                <v-card
-                  class="pa-2"
-                  variant="text"
-                  hover
-                >
-                  <v-card-item>
-                    <v-card-title>
-                      {{ exp.name }}
-                    </v-card-title>
-                    <v-card-subtitle>
-                      {{ exp.company }} . {{ exp.level }}
-                    </v-card-subtitle>
+                <v-hover v-slot="{ isHovering, props }">
+                  <v-card
+                    v-bind="props"
+                    class="pa-2"
+                    :elevation="isHovering ? 12 : 0"
+                    variant="text"
+                    :href="exp.link"
+                    target="_blank"
+                    link
+                  >
+                    <v-card-item>
+                      <v-card-title>
+                        {{ exp.name }}
+                      </v-card-title>
+                      <v-card-subtitle>
+                        {{ exp.company }} . {{ exp.level }}
+                      </v-card-subtitle>
 
-                    <v-card-subtitle>
-                      {{ exp.duration }}
-                    </v-card-subtitle>
+                      <v-card-subtitle>
+                        {{ exp.duration }}
+                      </v-card-subtitle>
                     <!-- <v-card-subtitle>
                       {{ exp.location }}
                     </v-card-subtitle> -->
-                  </v-card-item>
+                    </v-card-item>
 
-                  <v-card-text>
-                    <div v-for="line, key in exp.desc" :key="key">
-                      - {{ line }}
-                    </div>
+                    <v-card-text>
+                      <div v-for="line, key in exp.desc" :key="key">
+                        - {{ line }}
+                      </div>
 
-                    <v-chip-group
-                      class="mt-2"
-                      selected-class="text-primary"
-                    >
-                      <v-chip
-                        v-for="stack in exp.stacks"
-                        :key="stack"
-                        variant="tonal"
-                        size="small"
+                      <v-chip-group
+                        class="mt-2"
+                        selected-class="text-primary"
                       >
-                        {{ stack }}
-                      </v-chip>
-                    </v-chip-group>
-                  </v-card-text>
-
-                </v-card>
+                        <v-chip
+                          v-for="stack in exp.stacks"
+                          :key="stack"
+                          variant="tonal"
+                          size="small"
+                        >
+                          {{ stack }}
+                        </v-chip>
+                      </v-chip-group>
+                    </v-card-text>
+                  </v-card>
+                </v-hover>
               </v-timeline-item>
             </v-timeline>
           </section>
@@ -113,17 +118,24 @@
             <div class="mt-16">
               <v-row justify="space-around">
                 <v-col v-for="skill, key in skills" :key="key" md="6" cols="12">
-                  <v-card variant="text" hover>
-                    <v-card-item>
-                      <v-card-title>{{ key }}</v-card-title>
-                    </v-card-item>
+                  <v-hover v-slot="{ isHovering, props }">
+                    <v-card
+                      v-bind="props"
+                      :elevation="isHovering ? 12 : 0"
+                      variant="text"
+                      link
+                    >
+                      <v-card-item>
+                        <v-card-title>{{ key }}</v-card-title>
+                      </v-card-item>
 
-                    <v-card-text class="d-flex justify-space-around py-2">
-                      <v-avatar v-for="stack in skill" :key="stack.name" rounded="0">
-                        <v-img :src="stack.icon" :alt="stack.name"/>
-                      </v-avatar>
-                    </v-card-text>
-                  </v-card>
+                      <v-card-text class="d-flex justify-space-around py-2">
+                        <v-avatar v-for="stack in skill" :key="stack.name" rounded="0">
+                          <v-img :src="stack.icon" :alt="stack.name"/>
+                        </v-avatar>
+                      </v-card-text>
+                    </v-card>
+                  </v-hover>
                 </v-col>
               </v-row>
             </div>
@@ -184,6 +196,7 @@ const experiences = ref([
     company: '',
     level: 'Freelance',
     location: 'remote',
+    link: '',
     desc: '',
     stacks: []
   },
@@ -193,6 +206,7 @@ const experiences = ref([
     company: 'Interfit Worldwide Inc',
     level: 'Freelance',
     location: 'Irvine / CA',
+    link: 'https://interfit.co.kr/',
     desc: [
       'Oversaw development milestones from inception to final delivery.',
       'Boosted daily traffic by 50%.',
@@ -210,6 +224,7 @@ const experiences = ref([
     company: 'BASF',
     level: 'Freelance',
     location: 'San Diego / CA',
+    link: 'https://www.basf.com/',
     desc: [
       'Oversaw full-cycle process, from designing layouts using Figma to building projects with Nuxt.js.',
       'Enhanced FastAPI backend and streamlined deployment using Docker and GitLab CI/CD.',
@@ -225,6 +240,7 @@ const experiences = ref([
     company: 'Interfit',
     level: 'Freelance',
     location: 'Irvine / CA',
+    link: 'https://interfitclass.com/',
     desc: [
       'Developed web application from scratch as early team member at startup.',
       'Implemented Twilio\'s Video and Voice bi-directional conferencing features.',
