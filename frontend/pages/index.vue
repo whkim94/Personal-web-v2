@@ -21,11 +21,7 @@
                 I build from Front to Back.
               </v-card-text>
 
-              <div>
-                <v-btn @click="onClick">
-                  To portfolio
-                </v-btn>
-              </div>
+              <div/>
 
               <div style="position: absolute; bottom: 0px">
                 asdfas
@@ -95,12 +91,14 @@
                     <v-chip-group
                       class="mt-2"
                       selected-class="text-primary"
-                      column
                     >
                       <v-chip
-
+                        v-for="stack in exp.stacks"
+                        :key="stack"
+                        variant="tonal"
+                        size="small"
                       >
-                        asdf
+                        {{ stack }}
                       </v-chip>
                     </v-chip-group>
                   </v-card-text>
