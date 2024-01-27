@@ -310,6 +310,18 @@ const skills = ref({
     },
   ],
 
+  dbms: [
+    {
+      name: 'PostgreSQL', level: 'Advanced', value: 75, icon: '/icons/postgresql.svg'
+    },
+    {
+      name: 'MySQL', level: 'Intermediate', value: 70, icon: '/icons/mysql-icon.svg'
+    },
+    {
+      name: 'MongoDB', level: 'Intermediate', value: 75, icon: '/icons/mongodb-icon.svg'
+    },
+  ],
+
   styles: [
     {
       name: 'Vuetify', level: 'Advanced', value: 75, icon: '/icons/vuetifyjs.svg'
