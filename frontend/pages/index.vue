@@ -2,10 +2,10 @@
   <v-main class="bg-grey-darken-4">
     <v-container class="py-16">
       <v-row justify="center pt-8 px-md-16" no-gutters>
-        <v-col lg="4" cols="12">
+        <v-col lg="4" cols="12" >
           <!-- Name section -->
           <div style="position: sticky; top: 10vh">
-            <v-card class="" variant="text" height="80vh">
+            <v-card class="" variant="text">
 
               <v-card-item>
                 <v-card-title class="text-h4 text-green">
@@ -20,27 +20,27 @@
               <v-card-text class="">
                 I build from Front to Back.
               </v-card-text>
-
-              <div/>
-
-              <div style="position: absolute; bottom: 0px">
-                <v-hover
-                  v-for="s in sns"
-                  :key="s.name"
-                  v-slot="{ isHovering, props }"
-                >
-                  <v-icon
-                    v-bind="props"
-                    class="mr-4"
-                    size="large"
-                    :icon="s.icon"
-                    :color="isHovering ? 'green' : 'grey'"
-                    target="_blank"
-                    @click="navigateTo(s.link, {external: true, open : {target: '_blank'}})"
-                  />
-                </v-hover>
-              </div>
             </v-card>
+
+            <div/>
+          </div>
+
+          <div style="position: sticky; top: 88vh">
+            <v-hover
+              v-for="s in sns"
+              :key="s.name"
+              v-slot="{ isHovering, props }"
+            >
+              <v-icon
+                v-bind="props"
+                class="mr-4"
+                size="large"
+                :icon="s.icon"
+                :color="isHovering ? 'green' : 'grey'"
+                target="_blank"
+                @click="navigateTo(s.link, {external: true, open : {target: '_blank'}})"
+              />
+            </v-hover>
           </div>
 
         </v-col>
@@ -52,16 +52,16 @@
               <p class="line-break">
                 Hey there! You can think of me as a bit of a tech enthusiast and Full Stack Developer who's really into making things work seamlessly.
                 My journey in the tech world began at UC Davis, where I dived deep into the nuts and bolts of Computer Science.
-
-                At Interfit Worldwide Inc, a cool startup, I was the go-to guy for most of the web stuff.
+                <br><br>
+                At Interfit Worldwide Inc, a cool s artup, I was the go-to guy for most of the web stuff.
                 It was a thrilling ride, building up the web platform pretty much from scratch.
                 I got to play around with a bunch of technologies like Python, JavaScript, Django, you name it.
                 It was all about turning ambitious ideas into a digital reality, and boosting our web traffic was one of the highlights!
-
+                <br><br>
                 Switching gears at BASF, I was part of a dynamic team where we developed some cutting-edge tools for scientific research.
                 Working there was like being a tech wizard for scientists, creating software that made their experiments and data analysis a breeze.
                 This experience really honed my skills in teamwork and innovation in a different context.
-
+                <br><br>
                 Whether it's creating a startup's web presence from the ground up or being part of a team that builds software for scientific breakthroughs,
                 I'm all about bringing ideas to life with code. And hey, I've got some stories about Docker, AWS, and CI/CD pipelines too!
                 If you're up for a chat about tech, or have a project in mind, I'm just a message away. Let's create something amazing together!
@@ -146,9 +146,18 @@
                       </v-card-item>
 
                       <v-card-text class="d-flex justify-space-around py-2">
-                        <v-avatar v-for="stack in skill" :key="stack.name" rounded="0">
-                          <v-img :src="stack.icon" :alt="stack.name"/>
-                        </v-avatar>
+                        <v-tooltip
+                          v-for="stack in skill"
+                          :key="stack.name"
+                          :text="stack.name"
+                          location="bottom"
+                        >
+                          <template #activator="{ props }">
+                            <v-avatar v-bind="props" rounded="0">
+                              <v-img :src="stack.icon" :alt="stack.name"/>
+                            </v-avatar>
+                          </template>
+                        </v-tooltip>
                       </v-card-text>
                     </v-card>
                   </v-hover>
@@ -317,7 +326,7 @@ const skills = ref({
       name: 'PostgreSQL', level: 'Advanced', value: 75, icon: '/icons/postgresql.svg'
     },
     {
-      name: 'MySQL', level: 'Intermediate', value: 70, icon: '/icons/mysql-icon.svg'
+      name: 'MySQL', level: 'Intermediate', value: 70, icon: '/icons/mysql.svg'
     },
     {
       name: 'MongoDB', level: 'Intermediate', value: 75, icon: '/icons/mongodb-icon.svg'
@@ -339,6 +348,9 @@ const skills = ref({
   tools: [
     {
       name: 'AWS', level: 'Intermediate', value: 75, icon: '/icons/aws.svg'
+    },
+    {
+      name: 'Vercel', level: 'Intermediate', value: 75, icon: '/icons/vercel-icon.svg'
     },
     {
       name: 'Docker', level: 'Advanced', value: 75, icon: '/icons/docker-icon.svg'
