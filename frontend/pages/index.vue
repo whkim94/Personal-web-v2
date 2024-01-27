@@ -140,7 +140,9 @@
                       link
                     >
                       <v-card-item>
-                        <v-card-title>{{ key }}</v-card-title>
+                        <v-card-title class="text-center text-uppercase">
+                          {{ key }}
+                        </v-card-title>
                       </v-card-item>
 
                       <v-card-text class="d-flex justify-space-around py-2">
@@ -326,11 +328,32 @@ const skills = ref({
     {
       name: 'Vuetify', level: 'Advanced', value: 75, icon: '/icons/vuetifyjs.svg'
     },
+    {
+      name: 'TailwindCSS', level: 'Advanced', value: 75, icon: '/icons/tailwindcss-icon.svg'
+    },
+    {
+      name: 'Bootstrap', level: 'Advanced', value: 75, icon: '/icons/bootstrap.svg'
+    },
   ],
 
   tools: [
     {
       name: 'AWS', level: 'Intermediate', value: 75, icon: '/icons/aws.svg'
+    },
+    {
+      name: 'Docker', level: 'Advanced', value: 75, icon: '/icons/docker-icon.svg'
+    },
+    {
+      name: 'Twilio', level: 'Advanced', value: 75, icon: '/icons/twilio-icon.svg'
+    },
+  ],
+
+  versions: [
+    {
+      name: 'GitHub', level: 'Advanced', value: 75, icon: '/icons/github-icon.svg'
+    },
+    {
+      name: 'GitLab', level: 'Advanced', value: 75, icon: '/icons/gitlab.svg'
     },
   ]
 });
