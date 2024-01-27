@@ -1,7 +1,7 @@
 <template>
   <v-main class="bg-grey-darken-4">
     <v-container class="py-16">
-      <v-row justify="center pt-8 px-md-16" no-gutters>
+      <v-row justify="center" class="pt-8 px-md-16" no-gutters>
         <v-col lg="4" cols="12" >
           <!-- Name section -->
           <div style="position: sticky; top: 10vh">
@@ -170,31 +170,52 @@
           <section id="portfolio">
 
             <div class="mt-16">
-              <v-card
+              <v-hover
                 v-for="project in projects"
+                v-slot="{ isHovering, props }"
                 :key="project.title"
-                variant="tonal"
               >
-                <v-img :src="project.image"/>
-                <v-card-item>
-                  <v-card-title>
-                    {{ project.title }}
-                  </v-card-title>
-                  <v-card-subtitle>
-                    {{ project.description }}
-                  </v-card-subtitle>
-                </v-card-item>
+                <v-card
+                  v-bind="props"
+                  :elevation="isHovering ? 12 : 0"
+                  variant="text"
+                  class="mb-6"
+                  :href="project.link"
+                  target="_blank"
+                >
+                  <v-img :src="project.image"/>
 
-                <v-card-actions>
-                  <v-btn
-                    text
-                    color="primary"
-                    :href="project.link"
-                  >
-                    View Project
-                  </v-btn>
-                </v-card-actions>
-              </v-card>
+                  <v-card-item>
+                    <v-card-title>
+                      {{ project.title }}
+
+                      <v-icon
+                        icon="mdi-arrow-top-right"
+                        size="sm"
+                        :class="isHovering ? 'pb-2 pl-2' : ''"
+                      />
+                    </v-card-title>
+                  </v-card-item>
+
+                  <v-card-text>
+                    {{ project.description }}
+
+                    <v-chip-group
+                      class="mt-2"
+                      selected-class="text-primary"
+                    >
+                      <v-chip
+                        v-for="stack in project.stacks"
+                        :key="stack"
+                        variant="tonal"
+                        size="small"
+                      >
+                        {{ stack }}
+                      </v-chip>
+                    </v-chip-group>
+                  </v-card-text>
+                </v-card>
+              </v-hover>
             </div>
           </section>
         </v-col>
@@ -372,28 +393,18 @@ const skills = ref({
 
 const projects = ref([
   {
-    title: 'Project 1',
-    description: 'A brief description of Project 1',
-    image: '/images/project1.jpg',
-    link: 'https://project1.example.com',
+    title: 'Online Career Coaching Platform',
+    description: 'Online career coaching platform that provides job seekers a way to connect to the career consulting professionals. Built with fullstack Django. Currently under refactoring for ver.2 with Nuxt.js and Django.',
+    image: '/images/inClass_img.jpeg',
+    link: 'https://interfitclass.com/',
+    stacks: ['Django', 'Twilio', 'AWS ECS', 'Bootstrap']
   },
   {
-    title: 'Project 2',
-    description: 'A brief description of Project 2',
-    image: '/images/project2.jpg',
-    link: 'https://project2.example.com',
-  },
-  {
-    title: 'Project 3',
-    description: 'A brief description of Project 3',
-    image: '/images/project3.jpg',
-    link: 'https://project3.example.com',
-  },
-  {
-    title: 'Project 4',
-    description: 'A brief description of Project 4',
-    image: '/images/project4.jpg',
-    link: 'https://project4.example.com',
+    title: 'Job Boards',
+    description: 'Job seeking platform that provides open positions to applicants. Targeting users are Korean-American applicants living in US or whom are intending to move in US.',
+    image: '/images/interfit_img.jpeg',
+    link: 'https://interfit.co.kr/',
+    stacks: ['Nuxt.js', 'Django Rest Framework', 'AWS ECS']
   },
 ]);
 
