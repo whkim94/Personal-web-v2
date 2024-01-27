@@ -82,12 +82,7 @@ export default defineNuxtConfig({
         config.plugins.push(vuetify({ autoImport: true }));
       });
     },
-    // [
-    //   '@pinia/nuxt',
-    //   {
-    //     autoImports: ['defineStore', 'acceptHMRUpdate'],
-    //   },
-    // ],
+    '@nuxtjs/google-fonts',
     '@vueuse/nuxt',
     // '@nuxt/content',
     ['@nuxtjs/device', { refreshOnResize: true }],
