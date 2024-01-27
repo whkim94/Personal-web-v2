@@ -1,6 +1,6 @@
 <template>
   <v-main class="bg-grey-darken-4">
-    <v-container class="py-16">
+    <v-container class="py-16 main-font">
       <v-row justify="center" class="pt-8 px-md-16" no-gutters>
         <v-col lg="4" cols="12" >
           <!-- Name section -->
@@ -8,12 +8,14 @@
             <v-card class="" variant="text">
 
               <v-card-item>
-                <v-card-title class="text-h4 text-green">
+                <v-card-title
+                  class="text-h4 text-green"
+                >
                   JONATHAN KIM
                 </v-card-title>
 
                 <v-card-subtitle class="5">
-                  Full Stack developer
+                  Full Stack developer with a passion for building and innovating.
                 </v-card-subtitle>
               </v-card-item>
 
@@ -50,21 +52,15 @@
           <section id="about">
             <div class="pa-2">
               <p class="line-break">
-                Hey there! You can think of me as a bit of a tech enthusiast and Full Stack Developer who's really into making things work seamlessly.
-                My journey in the tech world began at UC Davis, where I dived deep into the nuts and bolts of Computer Science.
-                <br><br>
-                At Interfit Worldwide Inc, a cool s artup, I was the go-to guy for most of the web stuff.
-                It was a thrilling ride, building up the web platform pretty much from scratch.
-                I got to play around with a bunch of technologies like Python, JavaScript, Django, you name it.
-                It was all about turning ambitious ideas into a digital reality, and boosting our web traffic was one of the highlights!
-                <br><br>
-                Switching gears at BASF, I was part of a dynamic team where we developed some cutting-edge tools for scientific research.
+                My tech journey kidcked of at Interfit Worldwide Inc, a startup.
+                I was the architect behind our web platform, transforming big ideas into digital solutions and driving significant traffic growth.
+                Then at BASF, as part of a team, I shifted gears to develop software for scientific research, making complex experiments more accessible and efficient.
                 Working there was like being a tech wizard for scientists, creating software that made their experiments and data analysis a breeze.
-                This experience really honed my skills in teamwork and innovation in a different context.
                 <br><br>
-                Whether it's creating a startup's web presence from the ground up or being part of a team that builds software for scientific breakthroughs,
-                I'm all about bringing ideas to life with code. And hey, I've got some stories about Docker, AWS, and CI/CD pipelines too!
-                If you're up for a chat about tech, or have a project in mind, I'm just a message away. Let's create something amazing together!
+                My experiences range from crafting a startup's web presence to collaborating on scientific software, all fueled by my love for coding and teamwork.
+                If you've got a project or just want to talk tech, let's connect and create something great!
+                <br><br>
+                I enjoy playing tennis and League of Legends with my friends.
               </p>
             </div>
 
@@ -415,26 +411,8 @@ const onClick = () => {
 </script>
 
 <style scoped>
-.left-side {
-  background-color: #f5f5f5;
-}
-
-.shape-behind {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  background-color: #41b883;
-  z-index: 1;
-  /* Modify this to create the desired shape */
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-}
-
-.profile-picture {
-  position: relative;
-  width: 400px;
-  height: 400px;
-  object-fit: cover;
-  z-index: 2;
-  border-radius: 50%;
+.main-font {
+  font-family: Inter, sans-serif;
+  font-weight: 300;
 }
 </style>

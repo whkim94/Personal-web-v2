@@ -89,6 +89,13 @@ export default defineNuxtConfig({
     'nuxt-lodash',
   ],
 
+  googleFonts: {
+    families: {
+      // a simple name
+      Inter: '200..700',
+    }
+  },
+
   lodash: {
     prefix: '_',
     prefixSkip: ['string'],
