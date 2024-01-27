@@ -6,7 +6,6 @@
     "skipLibCheck": true,
     "types": [
       "@vueuse/nuxt",
-      "@pinia/nuxt",
       "node"
     ]
   }
