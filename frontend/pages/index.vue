@@ -210,22 +210,19 @@
                       <v-card-title>
                         {{ exp.name }}
                         <v-icon
-                          v-if="exp.company"
+                          v-if="exp.company !== 'Freelance'"
                           icon="mdi-arrow-top-right"
                           size="sm"
                           :class="isHovering ? 'pb-2 pl-2' : ''"
                         />
                       </v-card-title>
                       <v-card-subtitle>
-                        {{ exp.company }} . {{ exp.level }}
+                        {{ exp.company }}
                       </v-card-subtitle>
 
                       <v-card-subtitle>
                         {{ exp.duration }}
                       </v-card-subtitle>
-                    <!-- <v-card-subtitle>
-                      {{ exp.location }}
-                    </v-card-subtitle> -->
                     </v-card-item>
 
                     <v-card-text>
@@ -288,18 +285,12 @@
                       />
                     </v-card-title>
                     <v-card-subtitle>
-                      <span v-if="exp.company">
-                        {{ exp.company }} .
-                      </span>
-                      {{ exp.level }}
+                      {{ exp.company }}
                     </v-card-subtitle>
 
                     <v-card-subtitle>
                       {{ exp.duration }}
                     </v-card-subtitle>
-                  <!-- <v-card-subtitle>
-                      {{ exp.location }}
-                    </v-card-subtitle> -->
                   </v-card-item>
 
                   <v-card-text class="px-2">
@@ -571,8 +562,7 @@ const experiences = ref([
   {
     name: 'Full-Stack Developer | DevOps',
     duration: 'Jul 2023 - Present',
-    company: '',
-    level: 'Freelance',
+    company: 'Freelance',
     location: 'remote',
     link: '',
     desc: '',
@@ -581,8 +571,7 @@ const experiences = ref([
   {
     name: 'Full-Stack Developer | DevOps',
     duration: 'Jan 2023 - Jul 2023',
-    company: 'Interfit Worldwide Inc',
-    level: 'Freelance',
+    company: 'Interfit Worldwide Inc. Freelance',
     location: 'Irvine / CA',
     link: 'https://interfit.co.kr/',
     desc: [
@@ -600,7 +589,6 @@ const experiences = ref([
     name: 'Full-Stack Developer',
     duration: 'May 2021 - Jan 2023',
     company: 'BASF',
-    level: 'Freelance',
     location: 'San Diego / CA',
     link: 'https://www.basf.com/',
     desc: [
@@ -615,8 +603,7 @@ const experiences = ref([
   {
     name: 'Full-Stack Developer',
     duration: 'Jan 2023 - Jul 2023',
-    company: 'Interfit',
-    level: 'Freelance',
+    company: 'Interfit Worldwide Inc.',
     location: 'Irvine / CA',
     link: 'https://interfitclass.com/',
     desc: [
@@ -740,7 +727,6 @@ const onIntersectAbout = (isIntersecting, entries, observer) => {
 
 const onClick = (section:string) => {
   goTo(section);
-  console.log(section);
 };
 </script>
 
