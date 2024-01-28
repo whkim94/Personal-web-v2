@@ -602,7 +602,7 @@ const experiences = ref([
   },
   {
     name: 'Full-Stack Developer',
-    duration: 'Jan 2023 - Jul 2023',
+    duration: 'Sep 2019 - Sep 2021',
     company: 'Interfit Worldwide Inc.',
     location: 'Irvine / CA',
     link: 'https://interfitclass.com/',
