@@ -62,16 +62,85 @@
           <!-- About Me section -->
           <section id="about">
             <div class="pa-2 mt-16 my-lg-0">
-              <p class="line-break">
-                My tech journey kicked off at Interfit Worldwide Inc, a startup.
+              <p class="line-break text-grey">
+                My tech journey kicked off at
+                <v-hover
+                  v-slot="{ isHovering, props }"
+                >
+                  <a
+                    :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-white']"
+                    v-bind="props"
+                    href="https://interfit.co.kr/"
+                    target="_blank"
+                  >
+                    Interfit Worldwide Inc.
+                  </a>
+                </v-hover>, a startup.
                 I was the architect behind our web platform, transforming big ideas into digital solutions and driving significant traffic growth.
-                Then at BASF, as part of a team, I shifted gears to develop software for scientific research, making complex experiments more accessible and efficient.
+                Then at
+                <v-hover
+                  v-slot="{ isHovering, props }"
+                >
+                  <a
+                    :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-white']"
+                    v-bind="props"
+                    href="https://www.basf.com/"
+                    target="_blank"
+                  >
+                    BASF
+                  </a>
+                </v-hover>
+                , as part of a team, I shifted gears to develop software for scientific research, making complex experiments more accessible and efficient.
                 Working there was like being a tech wizard for scientists, creating software that made their experiments and data analysis a breeze.
                 <br><br>
                 My experiences range from crafting a startup's web presence to collaborating on scientific software, all fueled by my love for coding and teamwork.
                 If you've got a project or just want to talk tech, let's connect and create something great!
                 <br><br>
-                I enjoy playing tennis and League of Legends with my friends.
+                I enjoy playing
+                <v-hover
+                  v-slot="{ isHovering, props }"
+                >
+                  <span
+                    v-show="!isHovering"
+                    class='text-white'
+                    v-bind="props"
+                  >
+                    Tennis
+                  </span>
+
+                  <v-icon
+                    v-show="isHovering"
+                    v-bind="props"
+                    icon="mdi-tennis-ball"
+                    size="x-large"
+                    class='text-green-lighten-2'
+                  />
+                </v-hover>
+                and
+
+                <v-menu
+                  v-model="menu"
+                  :close-on-content-click="false"
+                  location="bottom"
+                >
+                  <template #activator="{ props }">
+                    <span
+                      class='text-white cursor-pointer'
+                      v-bind="props"
+                    >
+                      League of Legends
+                    </span>
+                  </template>
+
+                  <v-avatar
+                    size="100px"
+                  >
+                    <v-img
+                      src="/images/league-of-legends-logo.png"
+                    />
+                  </v-avatar>
+                </v-menu>
+                with my friends.
               </p>
             </div>
           </section>
@@ -355,6 +424,8 @@
 
 <script setup lang="ts">
 import { useGoTo } from 'vuetify';
+
+const menu = ref(false);
 
 const menuItems = ref([
   { text: 'About', href: '#about' },
