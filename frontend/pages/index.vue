@@ -35,7 +35,10 @@
             <div/>
           </div>
 
-          <div style="position: sticky; top: 88vh">
+          <div
+            v-show="!$device.isMobileOrTablet"
+            style="position: sticky; top: 88vh"
+          >
             <v-hover
               v-for="s in sns"
               :key="s.name"
@@ -60,7 +63,7 @@
           <section id="about">
             <div class="pa-2 mt-16 my-lg-0">
               <p class="line-break">
-                My tech journey kidcked of at Interfit Worldwide Inc, a startup.
+                My tech journey kicked off at Interfit Worldwide Inc, a startup.
                 I was the architect behind our web platform, transforming big ideas into digital solutions and driving significant traffic growth.
                 Then at BASF, as part of a team, I shifted gears to develop software for scientific research, making complex experiments more accessible and efficient.
                 Working there was like being a tech wizard for scientists, creating software that made their experiments and data analysis a breeze.
@@ -74,8 +77,12 @@
           </section>
 
           <!-- Experiment Section -->
-          <section id="experiment">
-            <v-timeline side="end" class="mt-16">
+          <section id="experiment" class="mt-16">
+            <!-- PC and Pad -->
+            <v-timeline
+              v-show="!$device.isMobile"
+              side="end"
+            >
               <v-timeline-item
                 v-for="exp in experiences"
                 :key="exp.duration"
@@ -138,52 +145,159 @@
                 </v-hover>
               </v-timeline-item>
             </v-timeline>
+
+            <!-- Mobile -->
+            <div
+              v-show="$device.isMobile"
+            >
+              <div
+                class="mb-6 ml-4"
+                style="font-size: 20px; font-weight: bold"
+              >
+                Experience
+              </div>
+
+              <v-hover
+                v-for="exp in experiences"
+                v-slot="{ isHovering, props }"
+                :key="exp.duration"
+              >
+                <v-card
+                  v-bind="props"
+                  class=""
+                  :elevation="isHovering ? 12 : 0"
+                  variant="text"
+                  :href="exp.link"
+                  target="_blank"
+                  link
+                >
+                  <v-card-item>
+                    <v-card-title>
+                      {{ exp.name }}
+                      <v-icon
+                        v-if="exp.company"
+                        icon="mdi-arrow-top-right"
+                        size="sm"
+                        :class="isHovering ? 'pb-2 pl-2' : ''"
+                      />
+                    </v-card-title>
+                    <v-card-subtitle>
+                      <span v-if="exp.company">
+                        {{ exp.company }} .
+                      </span>
+                      {{ exp.level }}
+                    </v-card-subtitle>
+
+                    <v-card-subtitle>
+                      {{ exp.duration }}
+                    </v-card-subtitle>
+                  <!-- <v-card-subtitle>
+                      {{ exp.location }}
+                    </v-card-subtitle> -->
+                  </v-card-item>
+
+                  <v-card-text>
+                    <div v-for="line, key in exp.desc" :key="key">
+                      - {{ line }}
+                    </div>
+
+                    <v-chip-group
+                      class="mt-2"
+                      selected-class="text-primary"
+                    >
+                      <v-chip
+                        v-for="stack in exp.stacks"
+                        :key="stack"
+                        variant="tonal"
+                        size="small"
+                      >
+                        {{ stack }}
+                      </v-chip>
+                    </v-chip-group>
+                  </v-card-text>
+                </v-card>
+              </v-hover>
+            </div>
+
+            <div class="mt-16 ml-4">
+              <v-hover
+                v-slot="{ isHovering, props }"
+              >
+                <v-btn
+                  variant="plain"
+                  v-bind="props"
+                  size="default"
+                  color="green"
+                  href="/Resume.pdf"
+                  target="_blank"
+                >
+                  View Full Résumé
+                  <v-icon
+                    icon="mdi-arrow-top-right"
+                    size="sm"
+                    :class="isHovering ? 'pb-2 pl-2' : ''"
+                  />
+                </v-btn>
+              </v-hover>
+            </div>
           </section>
 
           <!-- Skills section -->
-          <section id="skills">
-            <div class="mt-16">
-              <v-row justify="space-around">
-                <v-col v-for="skill, key in skills" :key="key" lg="6" md="4" cols="12">
-                  <v-hover v-slot="{ isHovering, props }">
-                    <v-card
-                      v-bind="props"
-                      :elevation="isHovering ? 12 : 0"
-                      class="mb-8 mb-md-0"
-                      variant="text"
-                      link
-                    >
-                      <v-card-item>
-                        <v-card-title class="text-center text-uppercase">
-                          {{ key }}
-                        </v-card-title>
-                      </v-card-item>
-
-                      <v-card-text class="d-flex justify-space-around py-2">
-                        <v-tooltip
-                          v-for="stack in skill"
-                          :key="stack.name"
-                          :text="stack.name"
-                          location="bottom"
-                        >
-                          <template #activator="{ props }">
-                            <v-avatar v-bind="props" rounded="0">
-                              <v-img :src="stack.icon" :alt="stack.name"/>
-                            </v-avatar>
-                          </template>
-                        </v-tooltip>
-                      </v-card-text>
-                    </v-card>
-                  </v-hover>
-                </v-col>
-              </v-row>
+          <section id="skills" class="mt-16 py-16">
+            <div
+              v-show="$device.isMobile"
+              class="mb-6 ml-4"
+              style="font-size: 20px; font-weight: bold"
+            >
+              Tech Stacks
             </div>
+            <v-row justify="space-around">
+              <v-col v-for="skill, key in skills" :key="key" lg="6" md="4" cols="12">
+                <v-hover v-slot="{ isHovering, props }">
+                  <v-card
+                    v-bind="props"
+                    :elevation="isHovering ? 12 : 0"
+                    class="mb-8 mb-md-0"
+                    variant="text"
+                    link
+                  >
+                    <v-card-item>
+                      <v-card-title class="text-center text-uppercase">
+                        {{ key }}
+                      </v-card-title>
+                    </v-card-item>
+
+                    <v-card-text class="d-flex justify-space-around py-2">
+                      <v-tooltip
+                        v-for="stack in skill"
+                        :key="stack.name"
+                        :text="stack.name"
+                        location="bottom"
+                      >
+                        <template #activator="{ props }">
+                          <v-avatar v-bind="props" rounded="0">
+                            <v-img :src="stack.icon" :alt="stack.name"/>
+                          </v-avatar>
+                        </template>
+                      </v-tooltip>
+                    </v-card-text>
+                  </v-card>
+                </v-hover>
+              </v-col>
+            </v-row>
           </section>
 
           <!-- Portfolio section -->
           <section id="portfolio">
 
             <div class="mt-16">
+              <div
+                v-show="$device.isMobile"
+                class="mb-6 ml-4"
+                style="font-size: 20px; font-weight: bold"
+              >
+                Projects
+              </div>
               <v-hover
                 v-for="project in projects"
                 v-slot="{ isHovering, props }"
