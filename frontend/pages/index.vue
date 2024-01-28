@@ -4,9 +4,10 @@
       <v-row justify="center" class="pt-8 px-md-16" no-gutters>
         <v-col lg="4" cols="12" >
           <!-- Name section -->
-          <div style="position: sticky; top: 10vh">
-            <v-card class="" variant="text">
-
+          <div
+            :class="$device.isMobileOrTablet ? 'name-mobile' : 'name-pc'"
+          >
+            <v-card variant="text">
               <v-card-item class="px-2">
                 <v-card-title
                   class="text-green"
@@ -31,8 +32,35 @@
                 for building and innovating.
               </v-card-text>
             </v-card>
+          </div>
 
-            <div/>
+          <div
+            class="px-2 hidden-md-and-down"
+            style="position: sticky; top: 30vh"
+          >
+            <div
+              v-for="menu in menuList"
+              :key="menu"
+              class="mb-4"
+            >
+              <v-hover
+                v-slot="{ isHovering, props }"
+              >
+                <v-icon
+                  class="text-green-lighten-1 mr-4"
+                  icon="mdi-tennis-ball"
+                  size="small"
+                />
+                <a
+                  v-bind="props"
+                  :class="['text-decoration-none', 'cursor-pointer', isHovering ? 'text-green-lighten-2' : 'text-white']"
+                  variant="plain"
+                  @click="onClick(`#${menu}`)"
+                >
+                  {{ menu }}
+                </a>
+              </v-hover>
+            </div>
           </div>
 
           <div
@@ -59,7 +87,10 @@
 
         <v-col lg="4" cols="12">
           <!-- About Me section -->
-          <section id="about">
+          <section
+            id="About"
+            v-intersect="onIntersectAbout"
+          >
             <div class="pa-2 mt-16 my-lg-0">
               <div
                 class="mb-6 hidden-md-and-up"
@@ -152,7 +183,7 @@
           </section>
 
           <!-- Experiment Section -->
-          <section id="experiment" class="mt-16">
+          <section id="Experiment" class="mt-16">
             <!-- PC and Pad -->
             <v-timeline
               v-show="!$device.isMobile"
@@ -318,7 +349,7 @@
           </section>
 
           <!-- Skills section -->
-          <section id="skills" class="mt-16 py-16">
+          <section id="Stacks" class="mt-16 py-16">
             <div
               v-show="$device.isMobile"
               class="mb-6 ml-2"
@@ -363,7 +394,7 @@
           </section>
 
           <!-- Portfolio section -->
-          <section id="portfolio">
+          <section id="Project">
 
             <div class="mt-16">
               <div
@@ -519,14 +550,16 @@
 <script setup lang="ts">
 import { useGoTo } from 'vuetify';
 
+const goTo = useGoTo();
+
 const menu = ref(false);
 
-const menuItems = ref([
-  { text: 'About', href: '#about' },
-  { text: 'Skills', href: '#skills' },
-  { text: 'Portfolio', href: '#portfolio' },
-  // Add more items as needed
-]);
+const isIntersectingAbout = ref(false);
+const isIntersectingExperiment = ref(false);
+const isIntersectingStacks = ref(false);
+const isIntersectingProject = ref(false);
+
+const menuList = ref(['About', 'Experiment', 'Stacks', 'Project']);
 
 const sns = ref([
   { name: 'LinkedIn', icon: 'mdi-linkedin', link: 'https://www.linkedin.com/in/jonathan-w-kim-0410/' },
@@ -701,9 +734,13 @@ const projects = ref([
   },
 ]);
 
-const onClick = () => {
-  const goTo = useGoTo();
-  goTo('portfolio');
+const onIntersectAbout = (isIntersecting, entries, observer) => {
+  isIntersectingAbout.value = true;
+};
+
+const onClick = (section:string) => {
+  goTo(section);
+  console.log(section);
 };
 </script>
 
@@ -713,9 +750,18 @@ const onClick = () => {
   font-weight: 300;
 }
 
+.name-pc {
+  position: sticky;
+  top: 10vh;
+}
+
+.name-mobile {
+
+}
 .sns-pc {
   position: sticky;
-  top: 88vh
+  top: 88vh;
+  margin-left: 15px;
 }
 
 .sns-mobile {
