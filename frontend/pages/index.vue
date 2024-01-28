@@ -9,18 +9,26 @@
 
               <v-card-item>
                 <v-card-title
-                  class="text-h4 text-green"
+                  class="text-green"
+                  style="font-size: 40px;"
                 >
                   JONATHAN KIM
                 </v-card-title>
 
-                <v-card-subtitle class="5">
-                  Full Stack developer with a passion for building and innovating.
-                </v-card-subtitle>
+                <v-card-title
+                  class="mt-4 text-grey-lighten-1"
+                  style="font-size: 20px;"
+                >
+                  Freelance Full-Stack Developer
+                </v-card-title>
               </v-card-item>
 
-              <v-card-text class="">
-                I build from Front to Back.
+              <v-card-text
+                class="mt-3 text-grey"
+                style="font-size: 15px;"
+              >
+                I build from Front to Back with a passion  <br>
+                for building and innovating.
               </v-card-text>
             </v-card>
 
@@ -50,7 +58,7 @@
         <v-col lg="4" cols="12">
           <!-- About Me section -->
           <section id="about">
-            <div class="pa-2">
+            <div class="pa-2 mt-16 my-lg-0">
               <p class="line-break">
                 My tech journey kidcked of at Interfit Worldwide Inc, a startup.
                 I was the architect behind our web platform, transforming big ideas into digital solutions and driving significant traffic growth.
@@ -63,7 +71,10 @@
                 I enjoy playing tennis and League of Legends with my friends.
               </p>
             </div>
+          </section>
 
+          <!-- Experiment Section -->
+          <section id="experiment">
             <v-timeline side="end" class="mt-16">
               <v-timeline-item
                 v-for="exp in experiences"
@@ -85,6 +96,12 @@
                     <v-card-item>
                       <v-card-title>
                         {{ exp.name }}
+                        <v-icon
+                          v-if="exp.company"
+                          icon="mdi-arrow-top-right"
+                          size="sm"
+                          :class="isHovering ? 'pb-2 pl-2' : ''"
+                        />
                       </v-card-title>
                       <v-card-subtitle>
                         {{ exp.company }} . {{ exp.level }}
@@ -127,11 +144,12 @@
           <section id="skills">
             <div class="mt-16">
               <v-row justify="space-around">
-                <v-col v-for="skill, key in skills" :key="key" md="6" cols="12">
+                <v-col v-for="skill, key in skills" :key="key" lg="6" md="4" cols="12">
                   <v-hover v-slot="{ isHovering, props }">
                     <v-card
                       v-bind="props"
                       :elevation="isHovering ? 12 : 0"
+                      class="mb-8 mb-md-0"
                       variant="text"
                       link
                     >
