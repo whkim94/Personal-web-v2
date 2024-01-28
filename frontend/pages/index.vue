@@ -7,7 +7,7 @@
           <div style="position: sticky; top: 10vh">
             <v-card class="" variant="text">
 
-              <v-card-item>
+              <v-card-item class="px-2">
                 <v-card-title
                   class="text-green"
                   style="font-size: 40px;"
@@ -24,7 +24,7 @@
               </v-card-item>
 
               <v-card-text
-                class="mt-3 text-grey"
+                class="mt-3 px-2 text-grey"
                 style="font-size: 15px;"
               >
                 I build from Front to Back with a passion  <br>
@@ -36,8 +36,7 @@
           </div>
 
           <div
-            v-show="!$device.isMobileOrTablet"
-            style="position: sticky; top: 88vh"
+            :class="$device.isMobileOrTablet ? 'sns-mobile' : 'sns-pc'"
           >
             <v-hover
               v-for="s in sns"
@@ -62,6 +61,13 @@
           <!-- About Me section -->
           <section id="about">
             <div class="pa-2 mt-16 my-lg-0">
+              <div
+                class="mb-6 hidden-md-and-up"
+                style="font-size: 20px; font-weight: bold"
+              >
+                About
+              </div>
+
               <p class="line-break text-grey">
                 My tech journey kicked off at
                 <v-hover
@@ -96,7 +102,7 @@
                 My experiences range from crafting a startup's web presence to collaborating on scientific software, all fueled by my love for coding and teamwork.
                 If you've got a project or just want to talk tech, let's connect and create something great!
                 <br><br>
-                I enjoy playing
+                To talk about something other than my career or coding stuff, I enjoy playing
                 <v-hover
                   v-slot="{ isHovering, props }"
                 >
@@ -220,7 +226,7 @@
               v-show="$device.isMobile"
             >
               <div
-                class="mb-6 ml-4"
+                class="mb-6 ml-2"
                 style="font-size: 20px; font-weight: bold"
               >
                 Experience
@@ -240,7 +246,7 @@
                   target="_blank"
                   link
                 >
-                  <v-card-item>
+                  <v-card-item class="px-2">
                     <v-card-title>
                       {{ exp.name }}
                       <v-icon
@@ -265,7 +271,7 @@
                     </v-card-subtitle> -->
                   </v-card-item>
 
-                  <v-card-text>
+                  <v-card-text class="px-2">
                     <div v-for="line, key in exp.desc" :key="key">
                       - {{ line }}
                     </div>
@@ -315,7 +321,7 @@
           <section id="skills" class="mt-16 py-16">
             <div
               v-show="$device.isMobile"
-              class="mb-6 ml-4"
+              class="mb-6 ml-2"
               style="font-size: 20px; font-weight: bold"
             >
               Tech Stacks
@@ -362,7 +368,7 @@
             <div class="mt-16">
               <div
                 v-show="$device.isMobile"
-                class="mb-6 ml-4"
+                class="mb-6 ml-2"
                 style="font-size: 20px; font-weight: bold"
               >
                 Projects
@@ -415,9 +421,97 @@
               </v-hover>
             </div>
           </section>
+
+          <div class="pt-16 pb-8 px-2">
+            <p
+              class="text-grey"
+              style="font-size: 14px;"
+            >
+              Design inspired by this
+              <v-hover
+                v-slot="{ isHovering, props }"
+              >
+                <a
+                  :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-white']"
+                  v-bind="props"
+                  href="https://brittanychiang.com/"
+                  target="_blank"
+                >
+                  wonderful developer
+                </a>
+              </v-hover>.
+
+              Coded in
+              <v-hover
+                v-slot="{ isHovering, props }"
+              >
+                <a
+                  :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-white']"
+                  v-bind="props"
+                  href="https://code.visualstudio.com/"
+                  target="_blank"
+                >
+                  Visual Studio Code
+                </a>
+              </v-hover>
+              by yours truly.
+              Built with
+              <v-hover
+                v-slot="{ isHovering, props }"
+              >
+                <a
+                  :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-white']"
+                  v-bind="props"
+                  href="https://nuxt.com/"
+                  target="_blank"
+                >
+                  Nuxt.js
+                </a>
+              </v-hover>
+              and
+              <v-hover
+                v-slot="{ isHovering, props }"
+              >
+                <a
+                  :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-white']"
+                  v-bind="props"
+                  href="https://vuetifyjs.com/"
+                  target="_blank"
+                >
+                  Vuetify
+                </a>
+              </v-hover>
+              , deployed with
+              <v-hover
+                v-slot="{ isHovering, props }"
+              >
+                <a
+                  :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-white']"
+                  v-bind="props"
+                  href="https://vercel.com/"
+                  target="_blank"
+                >
+                  Vercel
+                </a>
+              </v-hover>.
+              All text is set in the
+              <v-hover
+                v-slot="{ isHovering, props }"
+              >
+                <a
+                  :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-white']"
+                  v-bind="props"
+                  href="https://rsms.me/inter/"
+                  target="_blank"
+                >
+                  Inter
+                </a>
+              </v-hover>
+              typeface.
+            </p>
+          </div>
         </v-col>
       </v-row>
-
     </v-container>
   </v-main>
 </template>
@@ -617,5 +711,15 @@ const onClick = () => {
 .main-font {
   font-family: Inter, sans-serif;
   font-weight: 300;
+}
+
+.sns-pc {
+  position: sticky;
+  top: 88vh
+}
+
+.sns-mobile {
+  margin-top: 25px;
+  margin-left: 5px;
 }
 </style>
