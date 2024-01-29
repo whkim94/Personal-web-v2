@@ -14,18 +14,27 @@ export default defineNuxtConfig({
         {
           hid: 'description',
           name: 'description',
-          content: '미국 및 외국 취업에 관한 정보, 컨설팅, 인터뷰 연결 및 훈련 까지'
+          content: 'Jonathan W Kim - Personal Web Profile / Resume'
         },
-
         {
           hid: 'og:title',
           property: 'og:title',
-          content: 'Interfit'
+          content: 'Jonathan W Kim'
         },
         {
           hid: 'og:description',
           property: 'og:description',
-          content: '미국 및 외국 취업에 관한 정보, 컨설팅, 인터뷰 연결 및 훈련 까지'
+          content: 'Jonathan W Kim - Personal Web Profile / Resume'
+        },
+        {
+          hid: 'twitter:title',
+          property: 'twitter:title',
+          content: 'Jonathan W Kim'
+        },
+        {
+          hid: 'twitter:description',
+          property: 'twitter:description',
+          content: 'Jonathan W Kim - Personal Web Profile / Resume'
         },
       ],
 
@@ -33,23 +42,6 @@ export default defineNuxtConfig({
   },
 
   ssr: false,
-
-  //   runtimeConfig: {
-  //     // Private config that is only available on the server
-  //     // apiSecret: '123',
-  //     // Config within public will be also exposed to the client
-  //     public: {
-  //       baseURL: dev ? 'http://127.0.0.1:8000/api/' : 'https://interfit.co.kr/api/',
-  //       authURL: dev
-  //         ? 'http://0.0.0.0:8000/api/rest-auth/'
-  //         : 'https://interfit.co.kr/api/rest-auth/',
-  //       aiURL: 'https://ai.interfit.co.kr/api/'
-  //     }
-  //   },
-
-  //   imports: {
-  //     dirs: ['store'],
-  //   },
 
   /*
    ** Global CSS
