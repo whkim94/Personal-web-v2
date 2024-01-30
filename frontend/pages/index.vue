@@ -587,7 +587,7 @@ const experiences = ref([
   },
   {
     name: 'Full-Stack Developer',
-    duration: 'May 2021 - Jan 2023',
+    duration: 'May 2021 - Jun 2023',
     company: 'BASF',
     location: 'San Diego / CA',
     link: 'https://www.basf.com/',
