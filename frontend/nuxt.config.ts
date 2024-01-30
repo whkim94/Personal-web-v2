@@ -35,9 +35,11 @@ export default defineNuxtConfig({
           hid: 'twitter:description',
           property: 'twitter:description',
           content: 'Jonathan W Kim - Personal Web Profile / Resume'
-        },
+        }
       ],
-
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
+      ]
     },
   },
 
