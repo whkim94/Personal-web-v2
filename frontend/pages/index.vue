@@ -28,7 +28,7 @@
                 class="mt-3 px-2 text-grey"
                 style="font-size: 15px;"
               >
-                I build from Front to Back with a passion  <br>
+                I code from Front to Back with a passion  <br>
                 for building and innovating.
               </v-card-text>
             </v-card>
