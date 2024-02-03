@@ -81,6 +81,7 @@ export default defineNuxtConfig({
     // '@nuxt/content',
     ['@nuxtjs/device', { refreshOnResize: true }],
     'nuxt-lodash',
+    'nuxt-gtag'
   ],
 
   googleFonts: {
@@ -94,6 +95,14 @@ export default defineNuxtConfig({
     prefix: '_',
     prefixSkip: ['string'],
     upperAfterPrefix: false,
+  },
+
+  gtag: {
+    id: process.env.NUXT_PUBLIC_GTAG_ID
+  },
+
+  nitro: {
+    preset: 'vercel-edge',
   },
 
   build: {
