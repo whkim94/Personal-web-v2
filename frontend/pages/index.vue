@@ -153,7 +153,7 @@
                     class='text-green-lighten-2'
                   />
                 </v-hover>
-                and
+                ,
 
                 <v-menu
                   v-model="menu"
@@ -177,6 +177,12 @@
                     />
                   </v-avatar>
                 </v-menu>
+                , and
+                <span
+                  class='text-white cursor-pointer'
+                >
+                  Yacht
+                </span>
                 with my friends.
               </p>
             </div>
