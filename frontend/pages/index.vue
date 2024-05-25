@@ -153,11 +153,11 @@
                     class='text-green-lighten-2'
                   />
                 </v-hover>
-                ,
+
+                and
 
                 <v-menu
                   v-model="menu"
-                  :close-on-content-click="false"
                   location="bottom"
                 >
                   <template #activator="{ props }">
@@ -165,24 +165,16 @@
                       class='text-white cursor-pointer'
                       v-bind="props"
                     >
-                      League of Legends
+                      Yahtzee Dice
                     </span>
                   </template>
 
-                  <v-avatar
-                    size="100px"
-                  >
-                    <v-img
-                      src="/images/league-of-legends-logo.png"
-                    />
-                  </v-avatar>
+                  <v-img
+                    width="250px"
+                    src="https://i.gifer.com/B6nq.gif"
+                  />
+
                 </v-menu>
-                , and
-                <span
-                  class='text-white cursor-pointer'
-                >
-                  Yacht
-                </span>
                 with my friends.
               </p>
             </div>
