@@ -745,8 +745,8 @@ const skills = ref({
 
 const projects = ref([
   {
-    title: 'Video Conference using Twilio API',
-    description: 'Online career coaching platform that provides job seekers a way to connect to the career consulting professionals. Built with fullstack Django. Currently under refactoring for ver.2 with Nuxt.js and Django.',
+    title: 'Video Conference & Live Chat',
+    description: 'Video Conference using Twilio API & Live Chat using Web Socket and Daphne Server protocol',
     image: '/images/twilio_video.png',
     link: '',
     video: 'https://www.youtube.com/embed/V4zodvgB9Ok?si=Zjn2P9qxRK9zO0MX',
