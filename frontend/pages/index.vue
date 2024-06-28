@@ -750,7 +750,7 @@ const projects = ref([
     image: '/images/twilio_video.png',
     link: '',
     video: 'https://www.youtube.com/embed/V4zodvgB9Ok?si=Zjn2P9qxRK9zO0MX',
-    stacks: ['Twilio', 'Daphne', 'AWS Fargate']
+    stacks: ['Twilio', 'Daphne', 'Web Socket', 'AWS Fargate']
   },
   {
     title: 'Online Career Coaching Platform',
