@@ -542,21 +542,42 @@
 
       >
         <v-card-item class="pa-3">
-          <v-card-title class="mb-4">
+          <v-card-title class="mx-2 mb-4 d-flex justify-space-between">
             {{ projectObject.title }}
+            <v-hover
+              :key="projectObject.title"
+              v-slot="{ isHovering, props }"
+            >
+              <v-icon
+                v-bind="props"
+                class="my-1"
+                size="small"
+                icon="mdi-github"
+                :color="isHovering ? 'green' : 'black'"
+                target="_blank"
+                @click="navigateTo(projectObject.github, {external: true, open : {target: '_blank'}})"
+              />
+            </v-hover>
           </v-card-title>
 
-          <iframe :width="screenWidth" height='315' :src="projectObject.video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen/>
-
+          <iframe
+            :width="screenWidth" height='315'
+            :src="projectObject.video"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          />
         </v-card-item>
 
-        <template #actions>
+        <v-card-actions>
           <v-btn
             class="ms-auto"
             text="Close"
             @click="projectDialog = false"
           />
-        </template>
+        </v-card-actions>
       </v-card>
     </v-dialog>
 
@@ -585,6 +606,7 @@ const projectObject = ref({
   description: '',
   image: '',
   link: '',
+  github: '',
   video: '',
   stacks: []
 });
@@ -749,14 +771,16 @@ const projects = ref([
     description: 'Video Conference using Twilio API & Live Chat using Web Socket and Daphne Server protocol',
     image: '/images/twilio_video.png',
     link: '',
+    github: 'https://github.com/whkim94/Twilio-Video-Conference-Websocket-Chat',
     video: 'https://www.youtube.com/embed/V4zodvgB9Ok?si=Zjn2P9qxRK9zO0MX',
-    stacks: ['Twilio', 'Daphne', 'Web Socket', 'AWS Fargate']
+    stacks: ['Twilio', 'Django', 'Daphne', 'Web Socket', 'AWS Fargate']
   },
   {
     title: 'Online Career Coaching Platform',
     description: 'Online career coaching platform that provides job seekers a way to connect to the career consulting professionals. Built with fullstack Django. Currently under refactoring for ver.2 with Nuxt.js and Django.',
     image: '/images/inClass_img.jpeg',
     link: 'https://interfitclass.com/',
+    github: '',
     video: '',
     stacks: ['Django', 'Twilio', 'AWS ECS', 'Bootstrap']
   },
@@ -765,6 +789,7 @@ const projects = ref([
     description: 'Job seeking platform that provides open positions to applicants. Targeting users are Korean-American applicants living in US or whom are intending to move in US.',
     image: '/images/interfit_img.jpeg',
     link: 'https://interfit.co.kr/',
+    github: '',
     video: '',
     stacks: ['Nuxt.js', 'Django Rest Framework', 'AWS ECS']
   },
