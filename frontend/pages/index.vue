@@ -636,15 +636,15 @@ const experiences = ref([
     location: 'Irvine / CA',
     link: 'https://interfit.co.kr/',
     desc: [
-      'Oversaw development milestones from inception to final delivery.',
-      'Boosted daily traffic by 50%.',
-      'Implemented enhancements to both backend and frontend, improving performance and introducing new features.',
-      'Established release and development environments using Docker.',
-      'Deployed microservices using AWS Fargate.',
-      'Created admin page leveraging Google Analytics API for monitoring daily website status.',
-      'Configured GitHub Actions for automated CI/CD.'
+      'Updated Python/Django full-stack to Python/Django Rest Framework to provide API.',
+      'Improved performance updating frontend to React.js/Next.js/Typescript/Javascript.',
+      'Managed daily tasks within an Agile environment.',
+      'Established release and development environments using Docker Compose.',
+      'Configured GitHub Actions for automated CI/CD.',
+      'Deployed microservices using AWS ECS.',
+      'Boosted daily traffic by 50% optimizing Google SEO.'
     ],
-    stacks: ['Nuxt.js', 'Django', 'Docker', 'AWS ECS']
+    stacks: ['Next.js', 'React.js', 'Django', 'Docker', 'AWS ECS']
   },
   {
     name: 'Full-Stack Developer',
@@ -653,13 +653,15 @@ const experiences = ref([
     location: 'San Diego / CA',
     link: 'https://www.basf.com/',
     desc: [
-      'Oversaw full-cycle process, from designing layouts using Figma to building projects with Nuxt.js.',
-      'Enhanced FastAPI backend and streamlined deployment using Docker and GitLab CI/CD.',
-      'Created sophisticated tool for migrating from legacy software.',
-      'Collaborated with scientists to develop research tools, increasing their work efficiency.',
+      'Oversaw full-cycle process, from designing layouts using Figma to building projects with Vue.js/Nuxt.js/Javascript/Typescript.',
+      'Enhanced Python/FastAPI backend and streamlined deployment using Docker and GitLab CI/CD.',
+      'Implemented test code for Javascript/Typescript/UI components using Jest/Javascript following TDD methodology.',
+      'Orchestrated new projects with staff developer guiding entry developers.',
+      'Collaborated with scientists to deliver lab tools using Vue.js/Nuxt.js/Typescript/Javascript, increasing their work efficiency.',
+      'Suggested team for better local development experience adopting Docker environment.',
       'Enhanced user experience by providing tailored suggestions.'
     ],
-    stacks: ['Nuxt.js', 'FastAPI', 'Docker', 'GitLab']
+    stacks: ['Nuxt.js', 'Vue.js', 'FastAPI', 'Docker', 'GitLab']
   },
   {
     name: 'Full-Stack Developer',
@@ -668,14 +670,15 @@ const experiences = ref([
     location: 'Irvine / CA',
     link: 'https://interfitclass.com/',
     desc: [
-      'Developed web application from scratch as early team member at startup.',
+      'Built full-stack Python/Django web application from scratch as an early member at startup.',
       'Implemented Twilio\'s Video and Voice bi-directional conferencing features.',
-      'Deployed Docker-based microservices, including Nginx, frontend, server, workers, and more, on AWS ECS.',
-      'Configured scheduled tasks using Django Celery and AWS Cluster Scheduler.',
-      'Introduced user chat functionality, leveraging Django with Daphne\'s ASGI and Socket.io.',
-      'Utilized Nuxt.js for SEO optimization and Vuetify for enhanced UI/UX design.'
+      'Established application infrastructure on AWS ECS.',
+      'Managed incoming traffic placing AWS Elastic Load Balancer and Nginx.',
+      'Configured scheduled tasks using Python/Django Celery and AWS Cluster Scheduler.',
+      'Introduced user chat functionality, leveraging Python/Django with Python/Daphne\'s ASGI and Javascript/Socket.io.',
+      'Integrated Google Analytics for tracking user experience'
     ],
-    stacks: ['Nuxt.js', 'Django', 'Twilio', 'Docker', 'AWS ECS']
+    stacks: ['Nuxt.js', 'Vue.js', 'Django', 'Twilio', 'Docker', 'AWS ECS']
   },
 ]);
 
