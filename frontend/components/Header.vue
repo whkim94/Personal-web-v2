@@ -34,8 +34,13 @@
   <div :class="$device.isMobileOrTablet ? 'sns-mobile' : 'sns-pc'">
     <v-hover v-for="s in sns" :key="s.name" v-slot="{ isHovering, props }">
       <v-icon
-        v-bind="props" class="mr-4" size="large" :icon="s.icon" :color="isHovering ? 'green' : 'grey'" target="_blank"
-        @click="navigateTo(s.link, { external: true, open: { target: '_blank' } })" />
+        v-bind="props"
+        class="mr-4"
+        size="large"
+        :icon="s.icon"
+        :color="isHovering ? 'green' : 'grey'"
+        @click="handleClick(s)"
+      />
     </v-hover>
   </div>
 </template>
@@ -48,10 +53,27 @@ const goTo = useGoTo();
 const menuList = ref(['About', 'Experiment', 'Stacks', 'Project']);
 
 const sns = ref([
-  { name: 'LinkedIn', icon: 'mdi-linkedin', link: 'https://www.linkedin.com/in/jonathan-w-kim-0410/' },
-  { name: 'GitHub', icon: 'mdi-github', link: 'https://github.com/whkim94' },
-  { name: 'Instagram', icon: 'mdi-instagram', link: 'https://www.instagram.com/just_kimding/' }
+  {
+    name: 'LinkedIn', icon: 'mdi-linkedin', link: 'https://www.linkedin.com/in/jonathan-w-kim-0410/', type: 'link'
+  },
+  {
+    name: 'GitHub', icon: 'mdi-github', link: 'https://github.com/whkim94', type: 'link'
+  },
+  {
+    name: 'Instagram', icon: 'mdi-instagram', link: 'https://www.instagram.com/just_kimding/', type: 'link'
+  },
+  {
+    name: 'Email', icon: 'mdi-email', link: 'mailto:whkim94@gmail.com', type: 'email'
+  }
 ]);
+
+const handleClick = (s: any) => {
+  if (s.type === 'link') {
+    navigateTo(s.link, { external: true, open: { target: '_blank' } });
+  } else if (s.type === 'email') {
+    window.location.href = s.link;
+  }
+};
 
 const onClick = (section: string) => {
   goTo(section);
