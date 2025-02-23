@@ -29,7 +29,7 @@
                 style="font-size: 15px;"
               >
                 I code from Front to Back with a passion  <br>
-                for building and innovating.
+                for building and innovating..
               </v-card-text>
             </v-card>
           </div>
