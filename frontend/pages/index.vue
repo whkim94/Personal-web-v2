@@ -426,7 +426,8 @@
                 :src="image"
                 cover
                 height="400"
-                class="rounded-lg"
+                class="rounded-lg cursor-pointer"
+                @click="openFullImage(image)"
               />
             </v-carousel-item>
           </v-carousel>
@@ -450,6 +451,37 @@
               {{ stack }}
             </v-chip>
           </v-chip-group>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
+
+    <v-dialog
+      v-model="fullImageDialog"
+      fullscreen
+      :scrim="false"
+      transition="dialog-bottom-transition"
+    >
+      <v-card>
+        <v-toolbar
+          dark
+          color="black"
+        >
+          <v-btn
+            icon
+            dark
+            @click="fullImageDialog = false"
+          >
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+          <v-toolbar-title>Project Image</v-toolbar-title>
+          <v-spacer/>
+        </v-toolbar>
+        <v-card-text class="pa-0 d-flex align-center justify-center" style="height: calc(100vh - 64px); background-color: black;">
+          <v-img
+            :src="selectedImage"
+            max-height="95vh"
+            contain
+          />
         </v-card-text>
       </v-card>
     </v-dialog>
@@ -483,6 +515,9 @@ const projectObject = ref({
 
 const experienceDialog = ref(false);
 const currentExperience = ref(null);
+
+const fullImageDialog = ref(false);
+const selectedImage = ref('');
 
 const experiences = ref([
   {
@@ -709,11 +744,25 @@ const openExperienceDialog = (experience) => {
     window.open(experience.link, '_blank');
   }
 };
+
+const openFullImage = (image: string) => {
+  selectedImage.value = image;
+  fullImageDialog.value = true;
+};
 </script>
 
 <style scoped>
 .main-font {
   font-family: Inter, sans-serif;
   font-weight: 300;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.dialog-bottom-transition-enter-active,
+.dialog-bottom-transition-leave-active {
+  transition: transform .3s ease-in-out;
 }
 </style>
