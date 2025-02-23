@@ -1,88 +1,9 @@
 <template>
   <v-main class="bg-grey-darken-4">
     <v-container class="py-16 main-font">
-      <v-row justify="center" class="pt-8 px-md-16" no-gutters>
-        <v-col lg="4" cols="12" >
-          <!-- Name section -->
-          <div
-            :class="$device.isMobileOrTablet ? 'name-mobile' : 'name-pc'"
-          >
-            <v-card variant="text">
-              <v-card-item class="px-2">
-                <v-card-title
-                  class="text-green"
-                  style="font-size: 40px;"
-                >
-                  JONATHAN KIM
-                </v-card-title>
-
-                <v-card-title
-                  class="mt-4 text-grey-lighten-1"
-                  style="font-size: 20px;"
-                >
-                  Freelance Full-Stack Developer
-                </v-card-title>
-              </v-card-item>
-
-              <v-card-text
-                class="mt-3 px-2 text-grey"
-                style="font-size: 15px;"
-              >
-                I code from Front to Back with a passion  <br>
-                for building and innovating..
-              </v-card-text>
-            </v-card>
-          </div>
-
-          <div
-            class="px-2 hidden-md-and-down"
-            style="position: sticky; top: 30vh"
-          >
-            <div
-              v-for="menu in menuList"
-              :key="menu"
-              class="mb-4"
-            >
-              <v-hover
-                v-slot="{ isHovering, props }"
-              >
-                <v-icon
-                  class="text-green-lighten-1 mr-4"
-                  icon="mdi-tennis-ball"
-                  size="small"
-                />
-                <a
-                  v-bind="props"
-                  :class="['text-decoration-none', 'cursor-pointer', isHovering ? 'text-green-lighten-2' : 'text-white']"
-                  variant="plain"
-                  @click="onClick(`#${menu}`)"
-                >
-                  {{ menu }}
-                </a>
-              </v-hover>
-            </div>
-          </div>
-
-          <div
-            :class="$device.isMobileOrTablet ? 'sns-mobile' : 'sns-pc'"
-          >
-            <v-hover
-              v-for="s in sns"
-              :key="s.name"
-              v-slot="{ isHovering, props }"
-            >
-              <v-icon
-                v-bind="props"
-                class="mr-4"
-                size="large"
-                :icon="s.icon"
-                :color="isHovering ? 'green' : 'grey'"
-                target="_blank"
-                @click="navigateTo(s.link, {external: true, open : {target: '_blank'}})"
-              />
-            </v-hover>
-          </div>
-
+      <v-row justify="center" class="pt-8" no-gutters>
+        <v-col lg="4" cols="12">
+          <Header />
         </v-col>
 
         <v-col lg="4" cols="12">
@@ -197,12 +118,11 @@
                 <v-hover v-slot="{ isHovering, props }">
                   <v-card
                     v-bind="props"
-                    class="pa-2"
+                    class=""
                     :elevation="isHovering ? 12 : 0"
                     variant="text"
-                    :href="exp.link"
-                    target="_blank"
                     link
+                    @click="openExperienceDialog(exp)"
                   >
                     <v-card-item>
                       <v-card-title>
@@ -442,94 +362,7 @@
             </div>
           </section>
 
-          <div class="pt-16 pb-8 px-2">
-            <p
-              class="text-grey"
-              style="font-size: 14px;"
-            >
-              Design inspired by this
-              <v-hover
-                v-slot="{ isHovering, props }"
-              >
-                <a
-                  :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-white']"
-                  v-bind="props"
-                  href="https://brittanychiang.com/"
-                  target="_blank"
-                >
-                  wonderful developer
-                </a>
-              </v-hover>.
-
-              Coded in
-              <v-hover
-                v-slot="{ isHovering, props }"
-              >
-                <a
-                  :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-white']"
-                  v-bind="props"
-                  href="https://code.visualstudio.com/"
-                  target="_blank"
-                >
-                  Visual Studio Code
-                </a>
-              </v-hover>
-              by yours truly.
-              Built with
-              <v-hover
-                v-slot="{ isHovering, props }"
-              >
-                <a
-                  :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-white']"
-                  v-bind="props"
-                  href="https://nuxt.com/"
-                  target="_blank"
-                >
-                  Nuxt.js
-                </a>
-              </v-hover>
-              and
-              <v-hover
-                v-slot="{ isHovering, props }"
-              >
-                <a
-                  :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-white']"
-                  v-bind="props"
-                  href="https://vuetifyjs.com/"
-                  target="_blank"
-                >
-                  Vuetify
-                </a>
-              </v-hover>
-              , deployed with
-              <v-hover
-                v-slot="{ isHovering, props }"
-              >
-                <a
-                  :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-white']"
-                  v-bind="props"
-                  href="https://vercel.com/"
-                  target="_blank"
-                >
-                  Vercel
-                </a>
-              </v-hover>.
-              All text is set in the
-              <v-hover
-                v-slot="{ isHovering, props }"
-              >
-                <a
-                  :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-white']"
-                  v-bind="props"
-                  href="https://rsms.me/inter/"
-                  target="_blank"
-                >
-                  Inter
-                </a>
-              </v-hover>
-              typeface.
-            </p>
-          </div>
+          <Footer />
         </v-col>
       </v-row>
     </v-container>
@@ -538,9 +371,7 @@
       v-model="projectDialog"
       width="auto"
     >
-      <v-card
-
-      >
+      <v-card>
         <v-card-item class="pa-3">
           <v-card-title class="mx-2 mb-4 d-flex justify-space-between">
             {{ projectObject.title }}
@@ -581,17 +412,72 @@
       </v-card>
     </v-dialog>
 
+    <v-dialog
+      v-model="experienceDialog"
+      width="65vw"
+    >
+      <v-card v-if="currentExperience">
+        <v-card-title class="d-flex justify-space-between pa-4">
+          {{ currentExperience.name }} at {{ currentExperience.company }}
+          <v-btn
+            icon="mdi-close"
+            variant="text"
+            @click="experienceDialog = false"
+          />
+        </v-card-title>
+
+        <v-card-text>
+          <v-carousel
+            v-if="currentExperience.images"
+            cycle
+            height="400"
+            hide-delimiter-background
+            show-arrows="hover"
+          >
+            <v-carousel-item
+              v-for="(image, index) in currentExperience.images"
+              :key="index"
+            >
+              <v-img
+                :src="image"
+                cover
+                height="400"
+                class="rounded-lg"
+              />
+            </v-carousel-item>
+          </v-carousel>
+
+          <v-divider class="my-4"/>
+
+          <!-- <div class="text-body-1 mb-4">
+            <div v-for="(desc, index) in currentExperience.desc" :key="index" class="mb-2">
+              • {{ desc }}
+            </div>
+          </div> -->
+
+          <v-chip-group>
+            <v-chip
+              v-for="stack in currentExperience.stacks"
+              :key="stack"
+              color="green"
+              variant="outlined"
+              class="mr-2"
+            >
+              {{ stack }}
+            </v-chip>
+          </v-chip-group>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
+
     <SpeedInsights/>
   </v-main>
 </template>
 
 <script setup lang="ts">
 import { SpeedInsights } from '@vercel/speed-insights/nuxt';
-import { useGoTo } from 'vuetify';
 
 const screenWidth = ref(window.screen.width >= 768 ? 560 : 300);
-
-const goTo = useGoTo();
 
 const menu = ref(false);
 
@@ -611,13 +497,8 @@ const projectObject = ref({
   stacks: []
 });
 
-const menuList = ref(['About', 'Experiment', 'Stacks', 'Project']);
-
-const sns = ref([
-  { name: 'LinkedIn', icon: 'mdi-linkedin', link: 'https://www.linkedin.com/in/jonathan-w-kim-0410/' },
-  { name: 'GitHub', icon: 'mdi-github', link: 'https://github.com/whkim94' },
-  { name: 'Instagram', icon: 'mdi-instagram', link: 'https://www.instagram.com/just_kimding/' }
-]);
+const experienceDialog = ref(false);
+const currentExperience = ref(null);
 
 const experiences = ref([
   {
@@ -626,6 +507,19 @@ const experiences = ref([
     company: 'Global Fashion Resource Inc.',
     location: 'Los Angeles / CA',
     link: '',
+    images: [
+      '/images/erp/erp-1.png',
+      '/images/erp/erp-2.png',
+      '/images/erp/erp-3.png',
+      '/images/erp/erp-4.png',
+      '/images/erp/erp-5.png',
+      '/images/erp/erp-6.png',
+      '/images/erp/erp-7.png',
+      '/images/erp/erp-8.png',
+      '/images/erp/erp-9.png',
+      '/images/erp/erp-10.png',
+      '/images/erp/erp-11.png',
+    ],
     desc: [
       'Managing migration from legacy Microsoft Access-based system to modern ERP solution using Vue.js and Laravel',
       'Architecting and implementing new database schema for complex legacy data structures',
@@ -635,7 +529,7 @@ const experiences = ref([
       'Establishing automated testing protocols for continuous deployment',
       'Providing training and documentation for user adoption'
     ],
-    stacks: ['Vue.js', 'Laravel', 'MySQL', 'Docker', 'Forge']
+    stacks: ['Vue.js', 'Laravel', 'MySQL', 'Docker']
   },
   {
     name: 'Senior Full-Stack Developer',
@@ -700,9 +594,9 @@ const skills = ref({
     {
       name: 'Typescript', level: 'Intermediate', value: 80, icon: '/icons/typescript-icon.svg'
     },
-  {
-    name: 'PHP', level: 'Intermediate', value: 70, icon: '/icons/php.svg'
-  },
+    {
+      name: 'PHP', level: 'Intermediate', value: 70, icon: '/icons/php.svg'
+    },
   ],
 
   frontends: [
@@ -815,10 +709,6 @@ const onIntersectAbout = (isIntersecting, entries, observer) => {
   isIntersectingAbout.value = true;
 };
 
-const onClick = (section:string) => {
-  goTo(section);
-};
-
 const openProjectDialog = (project:object) => {
   projectObject.value = project;
 
@@ -826,30 +716,20 @@ const openProjectDialog = (project:object) => {
 
   else projectDialog.value = true;
 };
+
+const openExperienceDialog = (experience) => {
+  currentExperience.value = experience;
+  if (experience.images) {
+    experienceDialog.value = true;
+  } else if (experience.link) {
+    window.open(experience.link, '_blank');
+  }
+};
 </script>
 
 <style scoped>
 .main-font {
   font-family: Inter, sans-serif;
   font-weight: 300;
-}
-
-.name-pc {
-  position: sticky;
-  top: 10vh;
-}
-
-.name-mobile {
-
-}
-.sns-pc {
-  position: sticky;
-  top: 88vh;
-  margin-left: 15px;
-}
-
-.sns-mobile {
-  margin-top: 25px;
-  margin-left: 5px;
 }
 </style>
