@@ -621,30 +621,37 @@ const sns = ref([
 
 const experiences = ref([
   {
-    name: 'Full-Stack Developer | DevOps',
-    duration: 'Jul 2023 - Present',
-    company: 'Freelance',
-    location: 'remote',
+    name: 'Full-Stack Developer',
+    duration: 'Aug 2024 - Present',
+    company: 'Global Fashion Resource Inc.',
+    location: 'Los Angeles / CA',
     link: '',
-    desc: '',
-    stacks: []
+    desc: [
+      'Managing migration from legacy Microsoft Access-based system to modern ERP solution using Vue.js and Laravel',
+      'Architecting and implementing new database schema for complex legacy data structures',
+      'Developing custom data transformation scripts for data cleaning and normalization',
+      'Creating intuitive interfaces for Sales/Purchase Orders, Inventory Management, and Financial Reporting',
+      'Implementing robust data validation and error handling systems',
+      'Establishing automated testing protocols for continuous deployment',
+      'Providing training and documentation for user adoption'
+    ],
+    stacks: ['Vue.js', 'Laravel', 'MySQL', 'Docker']
   },
   {
-    name: 'Full-Stack Developer | DevOps',
+    name: 'Senior Full-Stack Developer',
     duration: 'Jan 2023 - Jul 2023',
-    company: 'Interfit Worldwide Inc. Freelance',
+    company: 'Interfit Worldwide Inc.',
     location: 'Irvine / CA',
     link: 'https://interfit.co.kr/',
     desc: [
-      'Updated Python/Django full-stack to Python/Django Rest Framework to provide API.',
-      'Improved performance updating frontend to React.js/Next.js/Typescript/Javascript.',
-      'Managed daily tasks within an Agile environment.',
-      'Established release and development environments using Docker Compose.',
-      'Configured GitHub Actions for automated CI/CD.',
-      'Deployed microservices using AWS ECS.',
-      'Boosted daily traffic by 50% optimizing Google SEO.'
+      'Modernized backend from monolithic Python/Django to API-driven Django Rest Framework',
+      'Upgraded frontend to TypeScript/React.js/Next.js, improving page load times by 30%',
+      'Implemented microservices architecture using AWS ECS, reducing deployment times by 40%',
+      'Established CI/CD pipeline with GitHub Actions, reducing deployment errors by 60%',
+      'Optimized Google SEO strategies, boosting daily organic traffic by 50%',
+      'Containerized development and production environments using Docker Compose'
     ],
-    stacks: ['Next.js', 'React.js', 'Django', 'Docker', 'AWS ECS']
+    stacks: ['Next.js', 'React.js', 'Django Rest Framework', 'Docker', 'AWS ECS']
   },
   {
     name: 'Full-Stack Developer',
