@@ -635,7 +635,7 @@ const experiences = ref([
       'Establishing automated testing protocols for continuous deployment',
       'Providing training and documentation for user adoption'
     ],
-    stacks: ['Vue.js', 'Laravel', 'MySQL', 'Docker']
+    stacks: ['Vue.js', 'Laravel', 'MySQL', 'Docker', 'Forge']
   },
   {
     name: 'Senior Full-Stack Developer',
@@ -700,6 +700,9 @@ const skills = ref({
     {
       name: 'Typescript', level: 'Intermediate', value: 80, icon: '/icons/typescript-icon.svg'
     },
+  {
+    name: 'PHP', level: 'Intermediate', value: 70, icon: '/icons/php.svg'
+  },
   ],
 
   frontends: [
@@ -723,6 +726,9 @@ const skills = ref({
     },
     {
       name: 'Node.js', level: 'Intermediate', value: 75, icon: '/icons/nodejs-icon.svg'
+    },
+    {
+      name: 'Laravel', level: 'Intermediate', value: 75, icon: '/icons/laravel-icon.svg'
     },
   ],
 
