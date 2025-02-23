@@ -21,10 +21,8 @@
               </div>
 
               <p class="line-break text-grey">
-                My tech journey kicked off at
-                <v-hover
-                  v-slot="{ isHovering, props }"
-                >
+                I'm a Full Stack Developer with over 5 years of experience crafting digital solutions. My journey began at
+                <v-hover v-slot="{ isHovering, props }">
                   <a
                     :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-white']"
                     v-bind="props"
@@ -33,12 +31,9 @@
                   >
                     Interfit Worldwide Inc.
                   </a>
-                </v-hover>, a startup.
-                I was the architect behind our web platform, transforming big ideas into digital solutions and driving significant traffic growth.
-                Then at
-                <v-hover
-                  v-slot="{ isHovering, props }"
-                >
+                </v-hover>, where I built a full-stack platform from the ground up, integrating real-time video conferencing and chat features that drove significant user engagement.
+                Later at
+                <v-hover v-slot="{ isHovering, props }">
                   <a
                     :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-white']"
                     v-bind="props"
@@ -47,17 +42,12 @@
                   >
                     BASF
                   </a>
-                </v-hover>
-                , as part of a team, I shifted gears to develop software for scientific research, making complex experiments more accessible and efficient.
-                Working there was like being a tech wizard for scientists, creating software that made their experiments and data analysis a breeze.
+                </v-hover>, I developed scientific software solutions, implementing test-driven development practices and optimizing laboratory workflows that boosted scientist productivity by 20%.
                 <br><br>
-                My experiences range from crafting a startup's web presence to collaborating on scientific software, all fueled by my love for coding and teamwork.
-                If you've got a project or just want to talk tech, let's connect and create something great!
+                Currently, I'm contributing to the modernization of legacy systems at Global Fashion Resource Inc., where I'm involved in architecting and implementing a comprehensive ERP solution. My expertise spans across modern frameworks like Vue.js, React, and Laravel, with a strong foundation in cloud technologies and CI/CD practices.
                 <br><br>
-                To talk about something other than my career or coding stuff, I enjoy playing
-                <v-hover
-                  v-slot="{ isHovering, props }"
-                >
+                When I'm not coding, you can find me playing
+                <v-hover v-slot="{ isHovering, props }">
                   <span
                     v-show="!isHovering"
                     class='text-white'
@@ -74,19 +64,14 @@
                     class='text-green-lighten-2'
                   />
                 </v-hover>
-
-                and
-
-                <v-menu
-                  v-model="menu"
-                  location="bottom"
-                >
+                or challenging friends to a game of
+                <v-menu v-model="menu" location="bottom">
                   <template #activator="{ props }">
                     <span
                       class='text-white cursor-pointer'
                       v-bind="props"
                     >
-                      Yahtzee Dice
+                      Yahtzee
                     </span>
                   </template>
 
@@ -94,9 +79,8 @@
                     width="250px"
                     src="https://i.gifer.com/B6nq.gif"
                   />
-
-                </v-menu>
-                with my friends.
+                </v-menu>.
+                I'm always excited to tackle new challenges and collaborate on innovative projects!
               </p>
             </div>
           </section>
