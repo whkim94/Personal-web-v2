@@ -498,9 +498,9 @@ const screenWidth = ref(window.screen.width >= 768 ? 560 : 300);
 const menu = ref(false);
 
 const isIntersectingAbout = ref(false);
-const isIntersectingExperiment = ref(false);
-const isIntersectingStacks = ref(false);
-const isIntersectingProject = ref(false);
+// const isIntersectingExperiment = ref(false);
+// const isIntersectingStacks = ref(false);
+// const isIntersectingProject = ref(false);
 
 const projectDialog = ref(false);
 const projectObject = ref({
@@ -552,7 +552,7 @@ const experiences = ref([
   },
   {
     name: 'Senior Full-Stack Developer',
-    duration: 'Jan 2023 - Jul 2023',
+    duration: 'Jan 2023 - Jul 2024',
     company: 'Interfit Worldwide Inc.',
     location: 'Irvine / CA',
     link: 'https://interfit.co.kr/',
