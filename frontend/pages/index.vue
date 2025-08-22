@@ -522,7 +522,7 @@ const selectedImage = ref('');
 const experiences = ref([
   {
     name: 'Full-Stack Developer',
-    duration: 'Aug 2024 - Present',
+    duration: 'Aug 2024 - April 2025',
     company: 'Global Fashion Resource Inc.',
     location: 'Los Angeles / CA',
     link: '',
@@ -568,7 +568,7 @@ const experiences = ref([
   },
   {
     name: 'Full-Stack Developer',
-    duration: 'May 2021 - Jun 2023',
+    duration: 'May 2021 - Jan 2023',
     company: 'BASF',
     location: 'San Diego / CA',
     link: 'https://www.basf.com/',
