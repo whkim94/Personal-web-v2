@@ -49,7 +49,7 @@ export default defineNuxtConfig({
           src: 'https://cdn.rankauthority.com/v2/seoscript.js',
           type: 'text/javascript',
           id: 'seo_automator',
-          'data-website-id': '3ebcb967-8ba9-4a70-8b70-5c6b7a9548d1'
+          'data-website-id': 'dd5927f0-dcdc-46a7-9e32-bb54b392368f'
         }
       ]
     },
