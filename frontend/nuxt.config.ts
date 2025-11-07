@@ -46,7 +46,7 @@ export default defineNuxtConfig({
           crossorigin: 'anonymous'
         },
         {
-          src: 'https://cdn.rankauthority.com/v2/seoscript.js',
+          src: 'https://cdn.rankauthority.com/v4/seoscript.js',
           type: 'text/javascript',
           id: 'seo_automator',
           'data-website-id': '63e77d50-60ed-4b27-87c9-f77b912c7d84'
