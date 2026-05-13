@@ -321,6 +321,21 @@
             </div>
           </section>
 
+          <!-- Blog -->
+          <section id="Blog" class="content-column mt-20">
+            <header class="section-head mb-10">
+              <span class="section-kicker">05</span>
+              <div>
+                <h2 class="section-title">Blog</h2>
+                <p class="section-sub mt-1">
+                  Notes, write-ups, and things I'm learning — latest posts.
+                </p>
+              </div>
+            </header>
+
+            <div id="soro-blog" class="soro-blog-shell" />
+          </section>
+
           <Footer />
         </v-col>
       </v-row>
@@ -1165,5 +1180,13 @@ const openFullImage = (image: string) => {
 .dialog-bottom-transition-enter-active,
 .dialog-bottom-transition-leave-active {
   transition: transform 0.3s ease-in-out;
+}
+
+.soro-blog-shell {
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1.25rem 1.5rem;
+  min-height: 140px;
 }
 </style>
