@@ -1,17 +1,17 @@
 <template>
   <div :class="$device.isMobileOrTablet ? 'name-mobile' : 'name-pc'">
-    <v-card variant="text">
+    <v-card variant="text" class="header-card">
       <v-card-item class="px-2">
-        <v-card-title class="text-green" style="font-size: 40px;">
+        <v-card-title class="header-name text-green-lighten-1">
           JONATHAN KIM
         </v-card-title>
 
-        <v-card-title class="mt-4 text-grey-lighten-1" style="font-size: 20px;">
+        <v-card-title class="mt-4 header-tagline text-medium-emphasis font-weight-regular">
           Freelance Full-Stack Developer
         </v-card-title>
       </v-card-item>
 
-      <v-card-text class="mt-3 px-2 text-grey" style="font-size: 15px;">
+      <v-card-text class="mt-3 px-2 text-body-1 text-medium-emphasis">
         I code from Front to Back with a passion <br>
         for building and innovating..
       </v-card-text>
@@ -23,8 +23,16 @@
       <v-hover v-slot="{ isHovering, props }">
         <v-icon class="text-green-lighten-1 mr-4" icon="mdi-tennis-ball" size="small" />
         <a
-          v-bind="props" :class="['text-decoration-none', 'cursor-pointer', isHovering ? 'text-green-lighten-2' : 'text-white']"
-          variant="plain" @click="onClick(`#${menu}`)">
+          v-bind="props"
+          :class="[
+            'text-decoration-none',
+            'cursor-pointer',
+            'nav-link',
+            isHovering ? 'text-green-lighten-2' : 'text-high-emphasis',
+          ]"
+          variant="plain"
+          @click="onClick(`#${menu}`)"
+        >
           {{ menu }}
         </a>
       </v-hover>
@@ -38,7 +46,7 @@
         class="mr-4"
         size="large"
         :icon="s.icon"
-        :color="isHovering ? 'green' : 'grey'"
+        :color="isHovering ? 'green-lighten-1' : 'grey-lighten-1'"
         @click="handleClick(s)"
       />
     </v-hover>
@@ -50,7 +58,7 @@ import { useGoTo } from 'vuetify';
 
 const goTo = useGoTo();
 
-const menuList = ref(['About', 'Experiment', 'Stacks', 'Project']);
+const menuList = ref(['About', 'Experience', 'Stacks', 'Projects']);
 
 const sns = ref([
   {
@@ -81,9 +89,43 @@ const onClick = (section: string) => {
 </script>
 
 <style scoped>
+.header-card {
+  overflow: visible;
+  max-width: 100%;
+}
+
+.header-card :deep(.v-card-item),
+.header-card :deep(.v-card-text) {
+  overflow: visible;
+}
+
+.header-card :deep(.v-card-title) {
+  white-space: normal !important;
+  overflow: visible;
+  word-break: break-word;
+  hyphens: auto;
+  line-height: 1.2;
+  padding-inline: 0;
+  max-width: 100%;
+}
+
+.header-name {
+  font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+  font-weight: 600;
+  letter-spacing: clamp(0.02em, 0.35vw, 0.06em);
+  line-height: 1.15;
+}
+
+.header-tagline {
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  line-height: 1.4;
+}
+
 .name-pc {
   position: sticky;
   top: 10vh;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .name-mobile {

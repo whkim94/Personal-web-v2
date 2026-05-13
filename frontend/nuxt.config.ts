@@ -50,6 +50,10 @@ export default defineNuxtConfig({
           type: 'text/javascript',
           id: 'seo_automator',
           'data-website-id': 'd7fec63b-a63e-4c8c-8299-16eee74ae694'
+        },
+        {
+          src: 'https://app.trysoro.com/api/embed/aabab531-2fc2-48d0-b80d-ac1a2d4b504d',
+          defer: true
         }
       ]
     },

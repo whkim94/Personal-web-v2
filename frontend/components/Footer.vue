@@ -1,10 +1,10 @@
 <template>
   <div class="pt-16 pb-8 px-2">
-    <p class="text-grey" style="font-size: 14px;">
+    <p class="text-body-2 text-medium-emphasis">
       Design inspired by this
       <v-hover v-slot="{ isHovering, props }">
         <a
-          :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-white']" v-bind="props"
+          :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-high-emphasis']" v-bind="props"
           href="https://brittanychiang.com/" target="_blank">
           wonderful developer
         </a>
@@ -13,7 +13,7 @@
       Coded in
       <v-hover v-slot="{ isHovering, props }">
         <a
-          :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-white']" v-bind="props"
+          :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-high-emphasis']" v-bind="props"
           href="https://code.visualstudio.com/" target="_blank">
           Visual Studio Code
         </a>
@@ -22,7 +22,7 @@
       Built with
       <v-hover v-slot="{ isHovering, props }">
         <a
-          :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-white']" v-bind="props"
+          :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-high-emphasis']" v-bind="props"
           href="https://nuxt.com/" target="_blank">
           Nuxt.js
         </a>
@@ -30,7 +30,7 @@
       and
       <v-hover v-slot="{ isHovering, props }">
         <a
-          :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-white']" v-bind="props"
+          :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-high-emphasis']" v-bind="props"
           href="https://vuetifyjs.com/" target="_blank">
           Vuetify
         </a>
@@ -38,7 +38,7 @@
       , deployed with
       <v-hover v-slot="{ isHovering, props }">
         <a
-          :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-white']" v-bind="props"
+          :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-high-emphasis']" v-bind="props"
           href="https://vercel.com/" target="_blank">
           Vercel
         </a>
@@ -46,7 +46,7 @@
       All text is set in the
       <v-hover v-slot="{ isHovering, props }">
         <a
-          :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-white']" v-bind="props"
+          :class="['text-decoration-none', isHovering ? 'text-green-lighten-2' : 'text-high-emphasis']" v-bind="props"
           href="https://rsms.me/inter/" target="_blank">
           Inter
         </a>
