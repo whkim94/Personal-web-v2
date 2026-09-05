@@ -40,18 +40,7 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
       ],
-      script: [
-        {
-          src: 'https://js.sentry-cdn.com/e001c79de893d5e5bd6faabf91c555e8.min.js',
-          crossorigin: 'anonymous'
-        },
-        {
-          src: 'https://cdn.rankauthority.com/v4/seoscript.js',
-          type: 'text/javascript',
-          id: 'seo_automator',
-          'data-website-id': 'd7fec63b-a63e-4c8c-8299-16eee74ae694'
-        }
-      ]
+      script: []
     },
   },
 
