@@ -1,31 +1,20 @@
 <template>
-  <div class="logo">
-    <span class="initials">JK</span>
-  </div>
+  <span class="logo" aria-hidden="true">JK</span>
 </template>
 
-<script>
-export default {
-  name: 'Logo',
-};
-</script>
-
-  <style scoped>
-  .logo {
-    display: flex;
-    align-items: center;
-    font-family: 'Roboto', sans-serif;
-  }
-
-  .initials {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--v-primary-base);
-  }
-
-  .profession {
-    font-size: 0.8rem;
-    color: var(--v-text-color);
-    margin-left: 0.5rem;
-  }
-  </style>
+<style scoped>
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #04120c;
+  background: var(--accent-grad);
+}
+</style>

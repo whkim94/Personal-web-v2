@@ -6,7 +6,9 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'Jonathan W Kim',
+      htmlAttrs: { lang: 'en' },
       meta: [
+        { name: 'theme-color', content: '#06080a' },
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
 
@@ -51,6 +53,7 @@ export default defineNuxtConfig({
    */
   css: [
     'vuetify/lib/styles/main.sass',
+    '~/assets/css/main.css',
   ],
 
   components: {
@@ -89,7 +92,10 @@ export default defineNuxtConfig({
     families: {
       // a simple name
       Inter: '200..700',
-    }
+      'Space+Grotesk': '400..700',
+      'JetBrains+Mono': '400..500',
+    },
+    display: 'swap'
   },
 
   lodash: {
