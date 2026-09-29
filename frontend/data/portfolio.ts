@@ -57,6 +57,20 @@ export const impact = [
 
 export const experiences: Experience[] = [
   {
+    name: 'Chief Technology Officer',
+    duration: 'May 2025 - Present',
+    company: 'RankAuthority',
+    link: 'https://rankauthority.com',
+    desc: [
+      'Architected the orchestration layer between frontier LLMs and live websites: a pipeline that audits a site, plans, generates, and ships changes to the customer\'s CMS, then measures the outcome.',
+      'Built a provider-agnostic AI layer over OpenAI, Anthropic, Gemini, and Perplexity, used both to generate content and to track how brands surface in AI search answers.',
+      'Engineered an outcome-driven autopilot with guardrails, pacing, and reversible actions, so AI can act on production sites safely.',
+      'Unified WordPress, Shopify, Wix, and Cloudflare edge behind one capability-based publishing engine, running on an event-driven AWS backbone (ECS, SQS, Lambda).',
+      'Own the full stack, from architecture, infrastructure, and billing to engineering workflow, with AI agents embedded in the delivery process.'
+    ],
+    stacks: ['LLM Orchestration', 'FastAPI', 'React.js', 'AWS', 'Celery / SQS', 'Terraform']
+  },
+  {
     name: 'Full-Stack Developer',
     duration: 'Aug 2024 - April 2025',
     company: 'Global Fashion Resource Inc.',
